@@ -37,7 +37,7 @@ export const Projects = ({ projects }: Props) => {
   const activeProjectsLayout = renderChildrenBasedOnActiveOption();
 
   return (
-    <section className="space-y-2">
+    <section className="space-y-2 px-4 md:px-16 pt-16">
       <ProjectsNavBar
         navBarOptions={navBarOptions}
         handleClick={handleClick}

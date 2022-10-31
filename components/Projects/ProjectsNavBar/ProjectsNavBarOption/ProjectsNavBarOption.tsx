@@ -30,11 +30,12 @@ export const ProjectsNavBarOption = ({
       <button
         type="button"
         className={classNames("border rounded-sm p-0.5", {
-          "border-orange-600": active,
+          "border-indigo-600": active,
           "border-gray-600": !active,
         })}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        onClick={() => handleClick(navBarOption)}
       >
         <Image
           src={`/${navBarOption}.svg`}
@@ -43,7 +44,6 @@ export const ProjectsNavBarOption = ({
           key={navBarOption}
           alt={navBarOption}
           className={classNames({ "opacity-50 hover:opacity-80": !active })}
-          onClick={() => handleClick(navBarOption)}
         />
       </button>
       <ProjectsNavBarOptionTooltip

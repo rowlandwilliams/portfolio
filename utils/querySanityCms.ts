@@ -14,7 +14,6 @@ export const querySanityCms = async (query: string) => {
 
   const json = await response.json();
 
-  console.log(json);
-  const { allProject } = json.data;
-  return allProject;
+  const { data } = json;
+  return data;
 };
