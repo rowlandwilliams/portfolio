@@ -4,6 +4,8 @@ export interface Project {
   endDate: string;
   name: string;
   summary: string;
+  color: string;
+  complete: boolean;
   mainImage: {
     asset: {
       url: string;

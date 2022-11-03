@@ -1,19 +1,15 @@
 import classNames from "classnames";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { ProjectsNavBarOptionTooltip } from "./ProjectsNavBarOptionTooltip/ProjectsNavBarOptionTooltip";
 
 interface Props {
   navBarOption: string;
   activeOption: string;
-  handleClick: (option: string) => void;
 }
 
-export const ProjectsNavBarOption = ({
-  navBarOption,
-  activeOption,
-  handleClick,
-}: Props) => {
+export const ProjectsNavBarOption = ({ navBarOption, activeOption }: Props) => {
   const [hovered, setHovered] = useState(false);
   const active = navBarOption === activeOption;
 
@@ -26,7 +22,13 @@ export const ProjectsNavBarOption = ({
   };
 
   return (
-    <section className="relative">
+    <Link
+      href={{
+        pathname: `/projects`,
+        query: { view: navBarOption },
+      }}
+      className="relative"
+    >
       <button
         type="button"
         className={classNames("border rounded-sm p-0.5", {
@@ -35,7 +37,6 @@ export const ProjectsNavBarOption = ({
         })}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onClick={() => handleClick(navBarOption)}
       >
         <Image
           src={`/${navBarOption}.svg`}
@@ -50,6 +51,6 @@ export const ProjectsNavBarOption = ({
         navBarOption={navBarOption}
         hovered={hovered}
       />
-    </section>
+    </Link>
   );
 };

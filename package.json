@@ -10,11 +10,23 @@
   },
   "dependencies": {
     "classnames": "^2.3.2",
+    "d3-axis": "^3.0.0",
+    "d3-brush": "^3.0.0",
+    "d3-scale": "^4.0.2",
+    "d3-selection": "^3.0.0",
+    "d3-shape": "^3.1.0",
+    "graphql": "^16.6.0",
+    "lodash.debounce": "^4.0.8",
     "next": "13.0.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "urql": "^3.0.3"
   },
   "devDependencies": {
+    "@types/d3-axis": "^3.0.1",
+    "@types/d3-brush": "^3.0.1",
+    "@types/d3-scale": "^4.0.2",
+    "@types/lodash.debounce": "^4.0.7",
     "@types/node": "18.11.7",
     "@types/react": "18.0.24",
     "@types/react-dom": "18.0.8",
