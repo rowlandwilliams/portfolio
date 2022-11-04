@@ -2,7 +2,7 @@ import { axisBottom } from "d3-axis";
 import { brushX } from "d3-brush";
 import { scaleTime } from "d3-scale";
 import { select } from "d3-selection";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useResponsiveGraphWidth } from "../../../../hooks/useResponsiveGraphWidth";
 import { Project } from "../../../../types/projects";
 import { ProjectsTimelineBrush } from "./ProjectsTimelineBrush/ProjectsTimelineBrush";
@@ -14,14 +14,15 @@ interface Props {
 const gray100 = "#f3f4f6";
 const padding = 40;
 const now = new Date().getTime();
+const dayInMs = 86400000;
 
 export const ProjectsTimelineWithBrush = ({ data }: Props) => {
-  const { graphWidth, graphHeight, ref } = useResponsiveGraphWidth();
-
-  const brush = brushX().extent([
-    [0, 0],
-    [graphWidth, 100],
+  const [datesDomain, setDatesDomain] = useState([
+    new Date("2020-10-01").getTime(),
+    now,
   ]);
+
+  const { graphWidth, graphHeight, ref } = useResponsiveGraphWidth();
 
   const { allProject: projects } = data;
 
@@ -35,14 +36,42 @@ export const ProjectsTimelineWithBrush = ({ data }: Props) => {
     (project: Project) => new Date(project.startDate)
   );
   const minStartDate = Math.min(...startDates);
-  const xScale = scaleTime().domain([minStartDate, now]).range([0, graphWidth]);
-  const xAxis = axisBottom(xScale).ticks(10);
 
   useEffect(() => {
+    const xScale = scaleTime().domain(datesDomain).range([0, graphWidth]);
+
+    const xAxis = axisBottom(xScale).ticks(10);
+
+    const brush = brushX()
+      .extent([
+        [0, 0],
+        [graphWidth, 100],
+      ])
+      .on("brush", (event) => {
+        const selection = { event };
+        var extent = selection.event.selection;
+        if (!extent) return;
+        const brushedDatesDomain = extent.map((x: number) =>
+          xScale.invert(x).getTime()
+        );
+
+        xScale.domain();
+
+        // setDatesDomain(brushedDatesDomain);
+        // console.log(brushedDatesDomain.map((date) => new Date(date)));
+      });
+
+    select("#x-axis")
+      .attr("transform", `translate(0,${graphHeight - padding})`)
+      .call(xAxis);
+
     select("#brush")
       .call(brush as any)
-      .call(brush.move as any, [xScale(minStartDate), xScale(now)]);
-  }, [brush, minStartDate, xScale]);
+      .call(brush.move as any, [
+        xScale(datesDomain[0]),
+        xScale(datesDomain[1]),
+      ]);
+  }, [minStartDate, datesDomain]);
 
   return (
     <>
@@ -53,13 +82,13 @@ export const ProjectsTimelineWithBrush = ({ data }: Props) => {
           <g
             id={"x-axis"}
             className="font-sans text-gray-600"
-            ref={(node) =>
-              select<SVGSVGElement, null>(node as SVGSVGElement)
-                .call(xAxis)
-                .call((g) =>
-                  g.selectAll(".domain, .tick > line").attr("stroke", gray100)
-                )
-            }
+            // ref={(node) =>
+            //   select<SVGSVGElement, null>(node as SVGSVGElement)
+            //     .call(xAxis)
+            //     .call((g) =>
+            //       g.selectAll(".domain, .tick > line").attr("stroke", gray100)
+            //     )
+            // }
             transform={`translate(0, ${graphHeight - padding})`}
           ></g>
         </svg>
