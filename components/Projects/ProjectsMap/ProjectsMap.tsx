@@ -75,7 +75,7 @@ export const ProjectsMap = () => {
   console.log(tooltipInfo);
   return (
     <section
-      className="relative text-xs w-full h-full border border-gray-800 bg-gray-200 bg-opacity-10 rounded-sm"
+      className="relative text-xs w-full h-full bg-opacity-10 rounded-sm"
       ref={ref}
     >
       <svg width={graphWidth} height={graphHeight}>
@@ -85,7 +85,7 @@ export const ProjectsMap = () => {
               d={mapGenerator(polygon) as string}
               key={i}
               fill={polygon.color}
-              className="stroke-[0.5] stroke-gray-300 fill-gray-600 "
+              className="stroke-[0.5] stroke-gray-600 fill-[#0f0f12]"
               onMouseMove={(e) => mouseMove(e, polygon.properties)}
               id={polygon.id}
               fillOpacity={0.6}
@@ -127,9 +127,9 @@ export const ProjectsMap = () => {
                 <circle
                   cx={proj[0]}
                   cy={proj[1]}
-                  r={8}
+                  r={6}
                   className={classNames(
-                    "animate-pulse opacity-10 stroke-[1] fill-gray-200",
+                    "animate-pulse opacity-10 stroke-[1] fill-gray-600",
 
                     [stroke]
                   )}
@@ -138,7 +138,7 @@ export const ProjectsMap = () => {
                 <circle
                   cx={proj[0]}
                   cy={proj[1]}
-                  r={2}
+                  r={1.5}
                   className={classNames([fill])}
                 ></circle>
               </g>
@@ -149,12 +149,15 @@ export const ProjectsMap = () => {
       {hovered && (
         <div
           className={classNames(
-            "bg-white p-4 rounded-sm absolute pointer-events-none text-black transition-all duration-300",
+            "divide-y divide-gray-600 bg-gray-900 border-[0.5px] border-gray-600 rounded-sm absolute pointer-events-none transition-all duration-300",
             { "hidden opacity-0": !hovered, "opacity-100 block": hovered }
           )}
           style={{ top: tooltipInfo.y, left: tooltipInfo.x }}
         >
-          {tooltipInfo.name}
+          <section className="p-2">
+            <h1>{tooltipInfo.type}</h1>
+          </section>
+          <section className="p-2">{tooltipInfo.name}</section>
         </div>
       )}
     </section>

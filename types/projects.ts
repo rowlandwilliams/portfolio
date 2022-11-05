@@ -18,4 +18,5 @@ export interface Project {
     };
   };
   slug: { current: string };
+  overviewRaw: any;
 }

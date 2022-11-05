@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@portabletext/react": "^2.0.0",
     "classnames": "^2.3.2",
     "d3-axis": "^3.0.0",
     "d3-brush": "^3.0.0",

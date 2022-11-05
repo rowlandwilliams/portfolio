@@ -24,7 +24,10 @@ const getQuery = (id: string) => `query {
         asset {
           url
         }
-      }  
+      } 
+      overviewRaw
+      problemRaw
+      solutionRaw
     }
 }`;
 
