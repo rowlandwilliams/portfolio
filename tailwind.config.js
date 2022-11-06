@@ -15,7 +15,8 @@ module.exports = {
     "bg-orange-400",
     "stroke-pink-400",
     "stroke-teal-400",
-    'stroke-yellow-400','stroke-red-400'
+    "stroke-yellow-400",
+    "stroke-red-400",
   ],
   theme: {
     extend: {
@@ -24,6 +25,30 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+      },
+      keyframes: {
+        "fade-in-down": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(-10px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        "fade-in": {
+          "0%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "1",
+          },
+        },
+      },
+      animation: {
+        "fade-in-down": "fade-in-down 0.5s ease-in",
+        "fade-in": "fade-in 0.5s ease-out",
       },
     },
   },

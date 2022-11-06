@@ -26,7 +26,7 @@ export const ProjectsLayout = () => {
 
   return (
     <BaseLayout>
-      <section className="space-y-2 h-full flex flex-col">
+      <section className="space-y-2 h-full flex flex-col animate-fade-in-down">
         <ProjectsNavBar activeOption={query.view as string} />
         {renderChildrenBasedOnActiveOption()}
       </section>
