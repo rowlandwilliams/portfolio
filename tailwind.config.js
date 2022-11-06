@@ -14,9 +14,10 @@ module.exports = {
     "bg-blue-800",
     "bg-orange-400",
     "stroke-pink-400",
-    "stroke-teal-400",
     "stroke-yellow-400",
-    "stroke-red-400",
+    "bg-pink-400",
+    "bg-yellow-400",
+    "bg-indigo-400",
   ],
   theme: {
     extend: {

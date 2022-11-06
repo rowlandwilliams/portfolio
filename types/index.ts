@@ -3,6 +3,7 @@ export interface HomeGraphTooltipInfo {
   prices:
     | {
         stockMetric: string;
+        colorClass: string;
         price: number;
       }[]
     | undefined;

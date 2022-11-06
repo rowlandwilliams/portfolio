@@ -27,7 +27,7 @@ export const HomeGraphLines = ({
           key={stock.stockMetric}
           className={classNames(
             "stroke-[0.75] md:stroke-[1.5] fill-transparent",
-            [stock.colorClass]
+            [`stroke-${stock.colorClass}`]
           )}
           strokeDasharray={lineLengths[i]}
           strokeDashoffset={lineOffsets[i]}

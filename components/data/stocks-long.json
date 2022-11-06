@@ -1,7 +1,7 @@
 [
   {
     "stockMetric": "high",
-    "colorClass": "stroke-indigo-400",
+    "colorClass": "indigo-400",
     "values": [
       {
         "date": "2021-11-05",
@@ -1016,7 +1016,7 @@
 
   {
     "stockMetric": "open",
-    "colorClass": "stroke-pink-400",
+    "colorClass": "pink-400",
     "values": [
       {
         "date": "2021-11-05",
@@ -2030,7 +2030,7 @@
   },
   {
     "stockMetric": "low",
-    "colorClass": "stroke-yellow-400",
+    "colorClass": "yellow-400",
     "values": [
       {
         "date": "2021-11-05",

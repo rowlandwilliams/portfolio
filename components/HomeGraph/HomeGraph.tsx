@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import { bisector } from "d3-array";
 import { pointer, selectAll } from "d3-selection";
-import { curveBasis, curveStep } from "d3-shape";
 import { MouseEvent, useEffect, useState } from "react";
 import { useResponsiveGraphWidth } from "../../hooks/useResponsiveGraphWidth";
 import { HomeGraphTooltipInfo } from "../../types";
@@ -88,19 +87,22 @@ export const HomeGraph = () => {
           const xDate = xScale.invert(mouse[0]);
           const xDateIndex = bisect(dates, xDate);
 
+          const { date, value } = stocks[0].values[xDateIndex];
+
           setTooltipInfo({
-            date: stocks[0].values[xDateIndex].date,
-            prices: stocks.map(({ stockMetric, values }) => ({
+            date,
+            prices: stocks.map(({ stockMetric, colorClass, values }) => ({
               stockMetric,
+              colorClass,
               price: values[xDateIndex].value,
             })),
             x: mouse[0],
-            y: mouse[1],
+            y: yScale(value),
           });
         }}
         className={classNames("transition-opacity ", {
           "opacity-40 duration-500": !animating,
-          "opacity-60 duration-100": hovered,
+          "opacity-60 duration-100": hovered && !animating,
         })}
       >
         <HomeGraphLines
