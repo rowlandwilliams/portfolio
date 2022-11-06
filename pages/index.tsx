@@ -1,10 +1,13 @@
 import { ReactElement } from "react";
 import { BaseLayout } from "../components/BaseLayout/BaseLayout";
+import { HomeGraph } from "../components/HomeGraph/HomeGraph";
 
 const Home = () => {
-  return <div>home yo!!mwleklnoi</div>;
+  return <HomeGraph />;
 };
 
-Home.getLayout = (page: ReactElement) => <BaseLayout>{page}</BaseLayout>;
+Home.getLayout = (page: ReactElement) => (
+  <BaseLayout noPadding>{page}</BaseLayout>
+);
 
 export default Home;
