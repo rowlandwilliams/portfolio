@@ -10,7 +10,7 @@ export const HomeGraphTooltip = ({ hovered, tooltipInfo }: Props) => {
   return (
     <div
       className={classNames(
-        "divide-y divide-gray-600 border border-gray-600 bg-dark-gray bg-opacity-95 rounded-sm absolute pointer-events-none transition-all duration-150 translate-y-full",
+        "divide-y divide-gray-600 border border-gray-600 bg-gray-900 bg-opacity-80 rounded-sm absolute pointer-events-none transition-all duration-150 translate-y-full",
         { "hidden opacity-0": !hovered, "opacity-100 block": hovered }
       )}
       style={{ top: tooltipInfo.y, left: tooltipInfo.x + 10 }}

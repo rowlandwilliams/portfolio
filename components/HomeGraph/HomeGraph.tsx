@@ -5,6 +5,7 @@ import { MouseEvent, useEffect, useState } from "react";
 import { useResponsiveGraphWidth } from "../../hooks/useResponsiveGraphWidth";
 import { HomeGraphTooltipInfo } from "../../types";
 import stocks from "../data/stocks-long.json";
+import { ProjectsGrid } from "../Projects/ProjectsGrid/ProjectsGrid";
 import { HomeGraphFocus } from "./HomeGraphFocus/HomeGraphFocus";
 import { HomeGraphLines } from "./HomeGraphLines/HomeGraphLines";
 import { HomeGraphTooltip } from "./HomeGraphTooltip/HomeGraphTooltip";
@@ -56,19 +57,25 @@ export const HomeGraph = () => {
 
   useEffect(() => {
     if (graphWidth > 0) {
-      const id = setInterval(() => {
-        const newLineOffsets = getNewLineOffsets(lineOffsets);
-        const decrementing =
-          JSON.stringify(newLineOffsets) !== JSON.stringify(lineOffsets);
+      const id = setInterval(
+        () => {
+          const newLineOffsets = getNewLineOffsets(lineOffsets);
+          const atZero = lineOffsets.every((value) => value < 0);
 
-        decrementing ? setLineOffsets(newLineOffsets) : setAnimating(false);
-      }, 1);
+          setLineOffsets(newLineOffsets);
+
+          if (atZero) {
+            setAnimating(false);
+          }
+        },
+        animating ? 1 : 20
+      );
 
       return () => {
         clearInterval(id);
       };
     }
-  }, [graphWidth, lineOffsets, lineLengths]);
+  }, [graphWidth, lineOffsets, lineLengths, animating]);
 
   return (
     <div ref={ref} className="h-full w-full">
@@ -101,7 +108,7 @@ export const HomeGraph = () => {
           });
         }}
         className={classNames("transition-opacity ", {
-          "opacity-40 duration-500": !animating,
+          "opacity-40 duration-1000": !animating,
           "opacity-60 duration-100": hovered && !animating,
         })}
       >
@@ -119,6 +126,11 @@ export const HomeGraph = () => {
       </svg>
       {hovered && !animating && (
         <HomeGraphTooltip hovered={hovered} tooltipInfo={tooltipInfo} />
+      )}
+      {!animating && (
+        <div className="absolute top-0 w-full my-16">
+          <ProjectsGrid />
+        </div>
       )}
     </div>
   );
