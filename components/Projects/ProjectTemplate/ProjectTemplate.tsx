@@ -38,7 +38,7 @@ export const ProjectTemplate = ({ project }: Props) => {
           alt={project.name}
           className="object-cover"
         />
-        <div className="bg-gradient-to-b from-dark-gray to-transparent h-14 absolute top-0 w-full"></div>
+        <div className="bg-gradient-to-b from-dark-gray to-transparent h-20 absolute top-0 w-full"></div>
         <section className="absolute bottom-8 px-4 md:px-16">
           <h1 className="text-4xl italic text-gray-200">{project?.name}</h1>
         </section>
