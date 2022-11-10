@@ -10,4 +10,10 @@ fragment ProjectFields on Project {
   overviewRaw
   problemRaw
   solutionRaw
+  companyLogo {
+    asset {
+      url
+    }
+  }
+  companyUrl
 }

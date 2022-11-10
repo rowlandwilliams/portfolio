@@ -7,7 +7,7 @@ query AllProjects {
       complete
       startDate
       endDate
-      logo {
+      companyLogo {
         asset {
           url
         }
