@@ -1,12 +1,15 @@
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import { ReactElement } from "react";
+import { client } from "../../client";
 import { BaseLayout } from "../../components/BaseLayout/BaseLayout";
 import { ProjectTemplate } from "../../components/Projects/ProjectTemplate/ProjectTemplate";
-import { Project } from "../../types/projects";
-import { querySanityCms } from "../../utils/querySanityCms";
+import {
+  ProjectDocument,
+  ProjectFieldsFragment,
+} from "../../graphql/generated";
 
 interface Props {
-  project: Project;
+  project: ProjectFieldsFragment;
 }
 
 const Project = ({ project }: Props) => <ProjectTemplate project={project} />;
@@ -15,34 +18,22 @@ Project.getLayout = (page: ReactElement) => (
   <BaseLayout noPadding>{page}</BaseLayout>
 );
 
-const getQuery = (id: string) => `query {
-  Project(id: "${id}") {
-      name
-      summary
-      color
-      mainImage {
-        asset {
-          url
-        }
-      } 
-      overviewRaw
-      problemRaw
-      solutionRaw
-    }
-}`;
-
 export const getServerSideProps: GetServerSideProps = async ({
   query,
 }: GetServerSidePropsContext) => {
   const { id } = query;
 
-  const projectQuery = getQuery(id as string);
+  if (id && typeof id === "string") {
+    const { data } = await client
+      .query(ProjectDocument, { projectId: id })
+      .toPromise();
 
-  const data = await querySanityCms(projectQuery);
+    return {
+      props: { project: data?.Project },
+    };
+  }
 
-  return {
-    props: { project: data.Project },
-  };
+  return { props: { project: {} } };
 };
 
 export default Project;

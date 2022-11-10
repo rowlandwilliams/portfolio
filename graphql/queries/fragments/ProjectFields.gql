@@ -1,0 +1,22 @@
+fragment ProjectFields on Project {
+  name
+  summary
+  color
+  mainImage {
+    asset {
+      url
+    }
+  }
+  overviewRaw
+  problemRaw
+  solutionRaw
+  companyLogo {
+    asset {
+      url
+    }
+  }
+  companyUrl
+  jobTitle
+  technologies
+  deliverables
+}
