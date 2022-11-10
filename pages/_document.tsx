@@ -5,7 +5,7 @@ const Document = () => (
     <Head>
       <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     </Head>
-    <body className="bg-gray-900 text-white  text-xs overflow-x-hidden">
+    <body className="bg-dark-gray text-white  text-xs overflow-x-hidden">
       <Main />
       <NextScript />
     </body>

@@ -1,11 +1,11 @@
 import classNames from "classnames";
 import { bisector } from "d3-array";
 import { pointer, selectAll } from "d3-selection";
+import Image from "next/image";
 import { MouseEvent, useEffect, useState } from "react";
 import { useResponsiveGraphWidth } from "../../hooks/useResponsiveGraphWidth";
 import { HomeGraphTooltipInfo } from "../../types";
 import stocks from "../data/stocks-long.json";
-import { ProjectsGrid } from "../Projects/ProjectsGrid/ProjectsGrid";
 import { HomeGraphFocus } from "./HomeGraphFocus/HomeGraphFocus";
 import { HomeGraphLines } from "./HomeGraphLines/HomeGraphLines";
 import { HomeGraphTooltip } from "./HomeGraphTooltip/HomeGraphTooltip";
@@ -128,8 +128,22 @@ export const HomeGraph = () => {
         <HomeGraphTooltip hovered={hovered} tooltipInfo={tooltipInfo} />
       )}
       {!animating && (
-        <div className="absolute top-0 w-full my-16">
-          <ProjectsGrid />
+        <div className="absolute top-0 left-16 my-16 rounded-md overflow-hidden ">
+          <div className="bg-gray-200">
+            <section className="flex h-full items-center gap-x-2 p-2">
+              <div className="h-2.5 w-2.5 rounded-full bg-red-500" />
+              <div className="h-2.5 w-2.5 rounded-full bg-yellow-500" />
+              <div className="h-2.5 w-2.5 rounded-full bg-indigo-500" />
+            </section>
+          </div>
+          <div className="relative w-[800px] h-[399px] ">
+            <Image
+              src="/vessels-ui.png"
+              fill
+              alt="suh"
+              className="object-contain"
+            />
+          </div>
         </div>
       )}
     </div>
