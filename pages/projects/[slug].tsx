@@ -3,10 +3,13 @@ import { ReactElement } from "react";
 import { client } from "../../client";
 import { BaseLayout } from "../../components/BaseLayout/BaseLayout";
 import { ProjectTemplate } from "../../components/Projects/ProjectTemplate/ProjectTemplate";
-import { ProjectDocument, ProjectQuery } from "../../graphql/generated";
+import {
+  ProjectDocument,
+  ProjectFieldsFragment,
+} from "../../graphql/generated";
 
 interface Props {
-  project: ProjectQuery;
+  project: ProjectFieldsFragment;
 }
 
 const Project = ({ project }: Props) => <ProjectTemplate project={project} />;

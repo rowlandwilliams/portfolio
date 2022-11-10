@@ -1,15 +1,5 @@
 query Project($projectId: ID!) {
   Project(id: $projectId) {
-    name
-    summary
-    color
-    mainImage {
-      asset {
-        url
-      }
-    }
-    overviewRaw
-    problemRaw
-    solutionRaw
+    ...ProjectFields
   }
 }

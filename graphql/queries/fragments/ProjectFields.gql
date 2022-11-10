@@ -1,0 +1,13 @@
+fragment ProjectFields on Project {
+  name
+  summary
+  color
+  mainImage {
+    asset {
+      url
+    }
+  }
+  overviewRaw
+  problemRaw
+  solutionRaw
+}

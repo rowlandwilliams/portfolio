@@ -1,11 +1,11 @@
 import { PortableText, PortableTextComponents } from "@portabletext/react";
 import classNames from "classnames";
 import Image from "next/image";
-import { Project } from "../../../types/projects";
+import { ProjectFieldsFragment } from "../../../graphql/generated";
 import { ProjectTemplateHeaderIconWithTooltip } from "./ProjectTemplateHeaderIconWithTooltip/ProjectTemplateHeaderIconWithTooltip";
 
 interface Props {
-  project: Project;
+  project: ProjectFieldsFragment;
 }
 const components: PortableTextComponents = {
   block: {
@@ -29,15 +29,19 @@ const components: PortableTextComponents = {
 };
 
 export const ProjectTemplate = ({ project }: Props) => {
+  const { name, mainImage } = project;
+
   return (
     <div className="text-base space-y-8 mb-32">
-      <div className="relative w-full h-[600px]">
-        <Image
-          src={project.mainImage.asset.url}
-          fill
-          alt={project.name}
-          className="object-cover"
-        />
+      <div className="relative w-full h-[700px]">
+        {mainImage?.asset?.url && name && (
+          <Image
+            src={mainImage?.asset?.url}
+            fill
+            alt={name}
+            className="object-cover"
+          />
+        )}
         <div className="bg-gradient-to-b from-dark-gray to-transparent h-20 absolute top-0 w-full"></div>
         <section className="absolute bottom-8 px-4 md:px-16">
           <h1 className="text-4xl italic text-gray-200">{project?.name}</h1>
@@ -47,7 +51,7 @@ export const ProjectTemplate = ({ project }: Props) => {
         <h1 className="text-6xl text-white border-b border-gray-600 py-8">
           {project?.summary}
         </h1>
-        <ProjectTemplateHeaderIconWithTooltip projectName={project.name} />
+        {name && <ProjectTemplateHeaderIconWithTooltip projectName={name} />}
 
         <div>
           <h1 className="text-indigo-400 text-lg">Overview</h1>
