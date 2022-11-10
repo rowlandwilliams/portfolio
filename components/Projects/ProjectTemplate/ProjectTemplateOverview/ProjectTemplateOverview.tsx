@@ -1,43 +1,52 @@
-import Image from "next/image";
-import Link from "next/link";
 import { ProjectFieldsFragment } from "../../../../graphql/generated";
 import { UiSectionWithMargin } from "../../../SHARED/UiSectionWithMargin/UiSectionWithMargin";
+import { ProjectTemplateOverviewCompany } from "./ProjectTemplateOverviewCompany/ProjectTemplateOverviewCompany";
+import { ProjectTemplateOverviewDeliverables } from "./ProjectTemplateOverviewDeliverables/ProjectTemplateOverviewDeliverables";
+import { ProjectTemplateOverviewRole } from "./ProjectTemplateOverviewRole/ProjectTemplateOverviewRole";
+import { ProjectTemplateOverviewTechnologies } from "./ProjectTemplateOverviewTechnologies/ProjectTemplateOverviewTechnologies";
 
 interface Props {
   project: ProjectFieldsFragment;
 }
 
 export const ProjectTemplateOverview = ({ project }: Props) => {
-  const { name, summary, color, companyLogo, companyUrl } = project;
+  const {
+    name,
+    summary,
+    color,
+    companyLogo,
+    companyUrl,
+    jobTitle,
+    deliverables,
+    technologies,
+  } = project;
 
-  const textColorClass = `text-${color}`;
+  const borderColorClass = `border-${color}`;
+  const deliverablesHeaderText = jobTitle ? "Responsibilities" : "Deliverables";
   return (
     <UiSectionWithMargin yPadding className="h-screen">
-      <h1 className="text-6xl text-white border-b border-gray-600 pb-8">
+      <h1 className="text-6xl text-white border-b border-gray-600 pb-8 animate-fade-in-down">
         {summary}
       </h1>
-      <section className="py-8 space-y-4">
-        <h1 className="font-medium">Company</h1>
-        {companyLogo?.asset?.url && name && companyUrl && (
-          <div>
-            <Link href={companyUrl} target="_blank">
-              <Image
-                src={companyLogo?.asset.url}
-                width={120}
-                height={100}
-                alt={name}
-              />
-            </Link>
-          </div>
-        )}
-      </section>
-      {/* <div>
-        <h1 className="text-indigo-400 text-lg">Overview</h1>
-        <PortableText
-          value={overviewRaw}
-          components={ProjectTemplatePortableTextComponents}
-        />
-      </div> */}
+      <article className="py-8">
+        <section className="space-y-8">
+          <ProjectTemplateOverviewCompany
+            companyLogo={companyLogo}
+            companyUrl={companyUrl}
+            name={name}
+          />
+          <ProjectTemplateOverviewRole jobTitle={jobTitle} />
+          <ProjectTemplateOverviewDeliverables
+            deliverables={deliverables}
+            deliverablesHeaderText={deliverablesHeaderText}
+            borderColorClass={borderColorClass}
+          />
+          <ProjectTemplateOverviewTechnologies
+            technologies={technologies}
+            borderColorClass={borderColorClass}
+          />
+        </section>
+      </article>
     </UiSectionWithMargin>
   );
 };

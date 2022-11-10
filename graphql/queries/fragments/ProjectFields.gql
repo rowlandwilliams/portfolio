@@ -16,4 +16,7 @@ fragment ProjectFields on Project {
     }
   }
   companyUrl
+  jobTitle
+  technologies
+  deliverables
 }
