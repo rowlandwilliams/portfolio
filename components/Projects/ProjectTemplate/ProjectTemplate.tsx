@@ -1,6 +1,7 @@
 import { PortableText, PortableTextComponents } from "@portabletext/react";
 import classNames from "classnames";
 import { ProjectFieldsFragment } from "../../../graphql/generated";
+import { UiSectionWithMargin } from "../../SHARED/UiSectionWithMargin/UiSectionWithMargin";
 import { ProjectTemplateHeaderIconWithTooltip } from "./ProjectTemplateHeaderIconWithTooltip/ProjectTemplateHeaderIconWithTooltip";
 import { ProjectTemplateMainImageAndTitle } from "./ProjectTemplateMainImageAndTitle/ProjectTemplateMainImageAndTitle";
 
@@ -29,12 +30,12 @@ const components: PortableTextComponents = {
 };
 
 export const ProjectTemplate = ({ project }: Props) => {
-  const { name, mainImage } = project;
+  const { name, mainImage, summary } = project;
 
   return (
     <div className="text-base space-y-8 mb-32">
       <ProjectTemplateMainImageAndTitle mainImage={mainImage} name={name} />
-      <section className="mx-4 md:mx-16  ">
+      <UiSectionWithMargin>
         <h1 className="text-6xl text-white border-b border-gray-600 py-8">
           {project?.summary}
         </h1>
@@ -44,11 +45,11 @@ export const ProjectTemplate = ({ project }: Props) => {
           <h1 className="text-indigo-400 text-lg">Overview</h1>
           <PortableText value={project.overviewRaw} components={components} />
         </div>
-      </section>
+      </UiSectionWithMargin>
       <section
         className={classNames("h-screen ", [`bg-${project.color}`])}
       ></section>
-      <section className="space-y-8 text-base mx-4 md:mx-16">
+      <UiSectionWithMargin className="space-y-8 text-base">
         <div>
           <h1 className="text-indigo-400 text-lg">Problem</h1>
           <PortableText value={project.problemRaw} components={components} />
@@ -57,7 +58,7 @@ export const ProjectTemplate = ({ project }: Props) => {
           <h1 className="text-indigo-400 text-lg">Solution</h1>
           <PortableText value={project.solutionRaw} components={components} />
         </div>
-      </section>
+      </UiSectionWithMargin>
     </div>
   );
 };
