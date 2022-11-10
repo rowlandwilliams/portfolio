@@ -1,8 +1,8 @@
 import { PortableText, PortableTextComponents } from "@portabletext/react";
 import classNames from "classnames";
-import Image from "next/image";
 import { ProjectFieldsFragment } from "../../../graphql/generated";
 import { ProjectTemplateHeaderIconWithTooltip } from "./ProjectTemplateHeaderIconWithTooltip/ProjectTemplateHeaderIconWithTooltip";
+import { ProjectTemplateMainImageAndTitle } from "./ProjectTemplateMainImageAndTitle/ProjectTemplateMainImageAndTitle";
 
 interface Props {
   project: ProjectFieldsFragment;
@@ -33,20 +33,7 @@ export const ProjectTemplate = ({ project }: Props) => {
 
   return (
     <div className="text-base space-y-8 mb-32">
-      <div className="relative w-full h-[700px]">
-        {mainImage?.asset?.url && name && (
-          <Image
-            src={mainImage?.asset?.url}
-            fill
-            alt={name}
-            className="object-cover"
-          />
-        )}
-        <div className="bg-gradient-to-b from-dark-gray to-transparent h-20 absolute top-0 w-full"></div>
-        <section className="absolute bottom-8 px-4 md:px-16">
-          <h1 className="text-4xl italic text-gray-200">{project?.name}</h1>
-        </section>
-      </div>
+      <ProjectTemplateMainImageAndTitle mainImage={mainImage} name={name} />
       <section className="mx-4 md:mx-16  ">
         <h1 className="text-6xl text-white border-b border-gray-600 py-8">
           {project?.summary}
