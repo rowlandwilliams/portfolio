@@ -19,4 +19,5 @@ fragment ProjectFields on Project {
   jobTitle
   technologies
   deliverables
+  locations
 }

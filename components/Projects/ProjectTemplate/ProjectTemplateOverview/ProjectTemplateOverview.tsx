@@ -2,6 +2,7 @@ import { ProjectFieldsFragment } from "../../../../graphql/generated";
 import { UiSectionWithMargin } from "../../../SHARED/UiSectionWithMargin/UiSectionWithMargin";
 import { ProjectTemplateOverviewCompany } from "./ProjectTemplateOverviewCompany/ProjectTemplateOverviewCompany";
 import { ProjectTemplateOverviewDeliverables } from "./ProjectTemplateOverviewDeliverables/ProjectTemplateOverviewDeliverables";
+import { ProjectTemplateOverviewLocations } from "./ProjectTemplateOverviewLocations/ProjectTemplateOverviewLocations";
 import { ProjectTemplateOverviewRole } from "./ProjectTemplateOverviewRole/ProjectTemplateOverviewRole";
 import { ProjectTemplateOverviewTechnologies } from "./ProjectTemplateOverviewTechnologies/ProjectTemplateOverviewTechnologies";
 
@@ -19,6 +20,7 @@ export const ProjectTemplateOverview = ({ project }: Props) => {
     jobTitle,
     deliverables,
     technologies,
+    locations,
   } = project;
 
   const borderColorClass = `border-${color}`;
@@ -43,6 +45,10 @@ export const ProjectTemplateOverview = ({ project }: Props) => {
           />
           <ProjectTemplateOverviewTechnologies
             technologies={technologies}
+            borderColorClass={borderColorClass}
+          />
+          <ProjectTemplateOverviewLocations
+            locations={locations}
             borderColorClass={borderColorClass}
           />
         </section>

@@ -12,7 +12,7 @@ export const ProjectTemplateOverviewTitleAndChildSection = ({
   const childIsString = typeof children === "string";
   return (
     <section className="space-y-2">
-      <h1 className="font-medium">{title}</h1>
+      <h1 className="font-medium text-sm">{title}</h1>
       {childIsString ? <div>{children}</div> : children}
     </section>
   );
