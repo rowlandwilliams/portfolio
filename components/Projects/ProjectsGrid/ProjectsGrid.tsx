@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
 import { useQuery } from "urql";
@@ -22,14 +23,17 @@ export const ProjectsGrid = () => {
         ))}
       {error && <div>{error && error.message}</div>}
       {data &&
-        data.allProject.map(({ _id, slug, name, mainImage }) => (
+        data.allProject.map(({ _id, slug, name, mainImage, color }) => (
           <Link
             href={{
               pathname: `/projects/${slug?.current}`,
               query: { id: _id },
             }}
             key={name}
-            className="border relative border-gray-600 rounded-lg overflow-hidden p-4 hover:border-indigo-400 hover:border-2 min-h-[300px]"
+            className={classNames(
+              "border relative border-gray-600 rounded-lg overflow-hidden p-4 hover:border-2 min-h-[300px]",
+              [`hover:border-${color}`]
+            )}
           >
             {mainImage?.asset?.url && name && (
               <Image
@@ -40,7 +44,9 @@ export const ProjectsGrid = () => {
               />
             )}
 
-            <h1 className="text-base font-medium z-50 absolute bottom-4">{name}</h1>
+            <h1 className="text-base font-medium z-50 absolute bottom-4">
+              {name}
+            </h1>
           </Link>
         ))}
     </div>

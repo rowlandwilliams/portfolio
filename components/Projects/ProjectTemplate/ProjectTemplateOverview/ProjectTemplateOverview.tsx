@@ -1,10 +1,13 @@
+import { PortableText } from "@portabletext/react";
 import { ProjectFieldsFragment } from "../../../../graphql/generated";
 import { UiSectionWithMargin } from "../../../SHARED/UiSectionWithMargin/UiSectionWithMargin";
+import { ProjectTemplatePortableTextComponents } from "../ProjectTemplatePortableTextComponents/ProjectTemplatePortableTextComponents";
 import { ProjectTemplateOverviewCompany } from "./ProjectTemplateOverviewCompany/ProjectTemplateOverviewCompany";
 import { ProjectTemplateOverviewDeliverables } from "./ProjectTemplateOverviewDeliverables/ProjectTemplateOverviewDeliverables";
 import { ProjectTemplateOverviewLocations } from "./ProjectTemplateOverviewLocations/ProjectTemplateOverviewLocations";
 import { ProjectTemplateOverviewRole } from "./ProjectTemplateOverviewRole/ProjectTemplateOverviewRole";
 import { ProjectTemplateOverviewTechnologies } from "./ProjectTemplateOverviewTechnologies/ProjectTemplateOverviewTechnologies";
+import { ProjectTemplateOverviewTitleAndChildSection } from "./SHARED/ProjectTemplateOverviewTitleAndChildSection/ProjectTemplateOverviewTitleAndChildSection";
 
 interface Props {
   project: ProjectFieldsFragment;
@@ -21,6 +24,7 @@ export const ProjectTemplateOverview = ({ project }: Props) => {
     deliverables,
     technologies,
     locations,
+    overviewRaw,
   } = project;
 
   const borderColorClass = `border-${color}`;
@@ -30,7 +34,7 @@ export const ProjectTemplateOverview = ({ project }: Props) => {
       <h1 className="text-6xl text-white border-b border-gray-600 pb-8 animate-fade-in-down">
         {summary}
       </h1>
-      <article className="py-8">
+      <article className="py-8 grid grid-cols-2">
         <section className="space-y-8">
           <ProjectTemplateOverviewCompany
             companyLogo={companyLogo}
@@ -52,6 +56,12 @@ export const ProjectTemplateOverview = ({ project }: Props) => {
             borderColorClass={borderColorClass}
           />
         </section>
+        <ProjectTemplateOverviewTitleAndChildSection title="Overview">
+          <PortableText
+            value={overviewRaw}
+            components={ProjectTemplatePortableTextComponents}
+          />
+        </ProjectTemplateOverviewTitleAndChildSection>
       </article>
     </UiSectionWithMargin>
   );

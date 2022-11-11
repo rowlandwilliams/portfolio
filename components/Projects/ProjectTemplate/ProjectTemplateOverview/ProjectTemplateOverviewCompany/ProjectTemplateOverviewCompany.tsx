@@ -16,7 +16,7 @@ export const ProjectTemplateOverviewCompany = ({
 }: Props) => {
   return companyLogo?.asset?.url && name && companyUrl ? (
     <ProjectTemplateOverviewTitleAndChildSection title="Company">
-      <div>
+      <div className="h-6 flex items-center">
         <Link href={companyUrl} target="_blank">
           <Image
             src={companyLogo?.asset.url}
