@@ -4,11 +4,24 @@ const projectColors = [
   "blue-800",
   "fuchsia-500",
   "orange-400",
+  "red-400",
+  "teal-300",
 ];
 const classPrefixes = ["stroke", "bg", "border", "hover:border"];
 
-export const getSafelistColors = () => {
+const getSafelistColors = () => {
   return projectColors
     .map((color) => classPrefixes.map((prefix) => `${prefix}-${color}`))
     .flat();
 };
+
+const safeListColors = getSafelistColors();
+
+const safeList = [
+  ...safeListColors,
+  "stroke-indigo-400",
+  "stroke-pink-400",
+  "stroke-yellow-400",
+];
+
+module.exports = safeList;

@@ -1,15 +1,5 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
-const projectColors = [
-  "indigo-600",
-  "lime-400",
-  "blue-800",
-  "fuchsia-500",
-  "orange-400",
-];
-const classPrefixes = ["stroke", "bg", "border", "hover:border"];
-const projectColorClasses = projectColors
-  .map((color) => classPrefixes.map((prefix) => `${prefix}-${color}`))
-  .flat();
+const safeList = require("./tailwind/safeList");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -17,7 +7,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
-  safelist: [...projectColorClasses],
+  safelist: [...safeList],
   theme: {
     extend: {
       colors: {
