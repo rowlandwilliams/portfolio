@@ -24,4 +24,4 @@ const safeList = [
   "stroke-yellow-400",
 ];
 
-module.exports = safeList;
+module.exports = { projectColors, safeList };

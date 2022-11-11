@@ -1,5 +1,5 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
-const safeList = require("./tailwind/safeList");
+const { safeList } = require("./tailwind/safeList");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {

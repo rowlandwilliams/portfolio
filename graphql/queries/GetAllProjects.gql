@@ -1,24 +1,5 @@
 query AllProjects {
-    allProject(sort: { complete: ASC, endDate: DESC }) {
-      _id
-      name
-      color
-      technologies
-      complete
-      startDate
-      endDate
-      companyLogo {
-        asset {
-          url
-        }
-      }
-      mainImage {
-        asset {
-          url
-        }
-      }
-      slug {
-        current
-      }
-    }
+  allProject(sort: { complete: ASC, endDate: DESC }) {
+    ...AllProjectFields
   }
+}
