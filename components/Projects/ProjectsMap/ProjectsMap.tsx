@@ -8,7 +8,7 @@ import { feature } from "topojson-client";
 import { useResponsiveGraphWidth } from "../../../hooks/useResponsiveGraphWidth";
 import world from "./data/110m.json";
 
-const polygons = feature(world as any, world.objects.countries as any);
+const polygons = feature(world as any, world.objects.countries as any) as any;
 
 const features = polygons.features.map((polygon: any) => ({
   ...polygon,
@@ -53,7 +53,14 @@ export const ProjectsMap = () => {
     type: string;
     x: number;
     y: number;
-  }>({});
+  }>(
+    {} as {
+      name: string;
+      type: string;
+      x: number;
+      y: number;
+    }
+  );
 
   const mouseMove = debounce((e: MouseEvent, properties: any) => {
     setCounty(properties.NAME_1);
@@ -80,7 +87,7 @@ export const ProjectsMap = () => {
     >
       <svg width={graphWidth} height={graphHeight}>
         <g width={graphWidth}>
-          {features.map((polygon, i) => (
+          {features.map((polygon: any, i: number) => (
             <path
               d={mapGenerator(polygon) as string}
               key={i}
@@ -111,7 +118,14 @@ export const ProjectsMap = () => {
                 }}
                 onMouseLeave={() => {
                   setHovered(false);
-                  setTooltipInfo({});
+                  setTooltipInfo(
+                    {} as {
+                      name: string;
+                      type: string;
+                      x: number;
+                      y: number;
+                    }
+                  );
                 }}
                 onMouseMove={(e: MouseEvent) => {
                   const mouseCoords = pointer(e);
@@ -124,23 +138,27 @@ export const ProjectsMap = () => {
                   });
                 }}
               >
-                <circle
-                  cx={proj[0]}
-                  cy={proj[1]}
-                  r={6}
-                  className={classNames(
-                    "animate-pulse opacity-10 stroke-[1] fill-gray-600",
+                {proj && (
+                  <circle
+                    cx={proj[0]}
+                    cy={proj[1]}
+                    r={6}
+                    className={classNames(
+                      "animate-pulse opacity-10 stroke-[1] fill-gray-600",
 
-                    [stroke]
-                  )}
-                  strokeOpacity={1}
-                ></circle>
-                <circle
-                  cx={proj[0]}
-                  cy={proj[1]}
-                  r={1.5}
-                  className={classNames([fill])}
-                ></circle>
+                      [stroke]
+                    )}
+                    strokeOpacity={1}
+                  ></circle>
+                )}
+                {proj && (
+                  <circle
+                    cx={proj[0]}
+                    cy={proj[1]}
+                    r={1.5}
+                    className={classNames([fill])}
+                  ></circle>
+                )}
               </g>
             );
           })}

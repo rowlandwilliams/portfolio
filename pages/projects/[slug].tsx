@@ -2,7 +2,7 @@ import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import { ReactElement } from "react";
 import { client } from "../../client";
 import { BaseLayout } from "../../components/BaseLayout/BaseLayout";
-import { ProjectTemplate } from "../../components/Projects/ProjectTemplate/ProjectTemplate";
+import { ProjectTemplate } from "../../components/ProjectTemplate/ProjectTemplate";
 import {
   ProjectDocument,
   ProjectFieldsFragment,

@@ -1,4 +1,4 @@
-import { Technology } from "../../../../../graphql/generated";
+import { Technology } from "../../../../graphql/generated";
 import { ProjectTemplateOverviewTags } from "../SHARED/ProjectTemplateOverviewTags/ProjectTemplateOverviewTags";
 import { ProjectTemplateOverviewTitleAndChildSection } from "../SHARED/ProjectTemplateOverviewTitleAndChildSection/ProjectTemplateOverviewTitleAndChildSection";
 

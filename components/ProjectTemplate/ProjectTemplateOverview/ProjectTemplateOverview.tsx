@@ -1,6 +1,6 @@
 import { PortableText } from "@portabletext/react";
-import { ProjectFieldsFragment } from "../../../../graphql/generated";
-import { UiSectionWithMargin } from "../../../SHARED/UiSectionWithMargin/UiSectionWithMargin";
+import { ProjectFieldsFragment } from "../../../graphql/generated";
+import { UiSectionWithMargin } from "../../SHARED/UiSectionWithMargin/UiSectionWithMargin";
 import { ProjectTemplatePortableTextComponents } from "../ProjectTemplatePortableTextComponents/ProjectTemplatePortableTextComponents";
 import { ProjectTemplateOverviewCompany } from "./ProjectTemplateOverviewCompany/ProjectTemplateOverviewCompany";
 import { ProjectTemplateOverviewDeliverables } from "./ProjectTemplateOverviewDeliverables/ProjectTemplateOverviewDeliverables";

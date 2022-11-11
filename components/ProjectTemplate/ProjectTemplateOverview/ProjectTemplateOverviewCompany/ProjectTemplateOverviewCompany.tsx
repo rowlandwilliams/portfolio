@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Image as ImageType } from "../../../../../graphql/generated";
+import { Image as ImageType } from "../../../../graphql/generated";
 import { ProjectTemplateOverviewTitleAndChildSection } from "../SHARED/ProjectTemplateOverviewTitleAndChildSection/ProjectTemplateOverviewTitleAndChildSection";
 
 interface Props {

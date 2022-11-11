@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { ProjectFieldsFragment } from "../../../graphql/generated";
+import { ProjectFieldsFragment } from "../../graphql/generated";
 import { ProjectTemplateMainImageAndTitle } from "./ProjectTemplateMainImageAndTitle/ProjectTemplateMainImageAndTitle";
 import { ProjectTemplateOverview } from "./ProjectTemplateOverview/ProjectTemplateOverview";
 

@@ -63,7 +63,7 @@ export const ProjectsTimelineWithBrush = ({ data }: Props) => {
 
     select("#x-axis")
       .attr("transform", `translate(0,${graphHeight - padding})`)
-      .call(xAxis);
+      .call(xAxis as any);
 
     select("#brush")
       .call(brush as any)
@@ -71,7 +71,7 @@ export const ProjectsTimelineWithBrush = ({ data }: Props) => {
         xScale(datesDomain[0]),
         xScale(datesDomain[1]),
       ]);
-  }, [minStartDate, datesDomain]);
+  }, [minStartDate, datesDomain, graphHeight, graphWidth]);
 
   return (
     <>

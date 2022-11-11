@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Image as ImageType } from "../../../../graphql/generated";
+import { Image as ImageType } from "../../../graphql/generated";
 
 interface Props {
   mainImage: ImageType | null | undefined;
