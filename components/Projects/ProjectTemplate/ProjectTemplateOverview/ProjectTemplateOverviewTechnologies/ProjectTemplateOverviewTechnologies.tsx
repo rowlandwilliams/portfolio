@@ -1,8 +1,9 @@
+import { Technology } from "../../../../../graphql/generated";
 import { ProjectTemplateOverviewTags } from "../SHARED/ProjectTemplateOverviewTags/ProjectTemplateOverviewTags";
 import { ProjectTemplateOverviewTitleAndChildSection } from "../SHARED/ProjectTemplateOverviewTitleAndChildSection/ProjectTemplateOverviewTitleAndChildSection";
 
 interface Props {
-  technologies: (string | null)[] | null | undefined;
+  technologies: (Technology | null)[] | undefined | null;
   borderColorClass: string;
 }
 
@@ -10,10 +11,12 @@ export const ProjectTemplateOverviewTechnologies = ({
   technologies,
   borderColorClass,
 }: Props) => {
-  return technologies ? (
+  const technologiesNames = technologies?.map((technology) => technology?.name);
+
+  return technologies && technologiesNames ? (
     <ProjectTemplateOverviewTitleAndChildSection title="Technologies">
       <ProjectTemplateOverviewTags
-        options={technologies}
+        options={technologiesNames}
         borderColorClass={borderColorClass}
       />
     </ProjectTemplateOverviewTitleAndChildSection>

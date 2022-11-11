@@ -1,7 +1,7 @@
 import classNames from "classnames";
 
 interface Props {
-  text: string | null;
+  text: string | null | undefined;
   borderColorClass: string;
 }
 

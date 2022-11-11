@@ -6,6 +6,7 @@ const projectColors = [
   "orange-400",
   "red-400",
   "teal-300",
+  "yellow-300",
 ];
 const classPrefixes = ["stroke", "bg", "border", "hover:border"];
 
