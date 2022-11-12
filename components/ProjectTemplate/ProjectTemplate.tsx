@@ -1,5 +1,5 @@
-import classNames from "classnames";
 import { ProjectFieldsFragment } from "../../graphql/generated";
+import { ProjectTemplateImages } from "./ProjectTemplateImages/ProjectTemplateImages";
 import { ProjectTemplateMainImageAndTitle } from "./ProjectTemplateMainImageAndTitle/ProjectTemplateMainImageAndTitle";
 import { ProjectTemplateOverview } from "./ProjectTemplateOverview/ProjectTemplateOverview";
 
@@ -14,9 +14,7 @@ export const ProjectTemplate = ({ project }: Props) => {
     <div className="text-base space-y-8 mb-32">
       <ProjectTemplateMainImageAndTitle mainImage={mainImage} name={name} />
       <ProjectTemplateOverview project={project} />
-      <section
-        className={classNames("h-screen ", [`bg-${project.color}`])}
-      ></section>
+      <ProjectTemplateImages project={project} />
       <section className="h-screen"></section>
     </div>
   );

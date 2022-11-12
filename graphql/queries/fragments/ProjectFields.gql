@@ -7,6 +7,14 @@ fragment ProjectFields on Project {
       url
     }
   }
+  projectImages {
+    image {
+      asset {
+        url
+      }
+    }
+    caption
+  }
   overviewRaw
   problemRaw
   solutionRaw

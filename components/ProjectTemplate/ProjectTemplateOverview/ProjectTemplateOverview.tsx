@@ -1,4 +1,5 @@
 import { PortableText } from "@portabletext/react";
+import classNames from "classnames";
 import { ProjectFieldsFragment } from "../../../graphql/generated";
 import { UiSectionWithMargin } from "../../SHARED/UiSectionWithMargin/UiSectionWithMargin";
 import { ProjectTemplatePortableTextComponents } from "../ProjectTemplatePortableTextComponents/ProjectTemplatePortableTextComponents";
@@ -31,7 +32,12 @@ export const ProjectTemplateOverview = ({ project }: Props) => {
   const deliverablesHeaderText = jobTitle ? "Responsibilities" : "Deliverables";
   return (
     <UiSectionWithMargin yPadding className="h-screen">
-      <h1 className="text-6xl text-white border-b border-gray-600 pb-8 animate-fade-in-down">
+      <h1
+        className={classNames(
+          "text-6xl text-white border-b pb-8 animate-fade-in-down",
+          [borderColorClass]
+        )}
+      >
         {summary}
       </h1>
       <article className="py-8 grid grid-cols-2">

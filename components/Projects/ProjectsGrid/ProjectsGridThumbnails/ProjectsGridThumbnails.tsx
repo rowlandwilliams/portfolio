@@ -1,5 +1,5 @@
 import { AllProjectsQuery } from "../../../../graphql/generated";
-import { ProjectsGridThumbnail } from "../ProjectsGridThumbnail/ProjectsGridThumbnail";
+import { ProjectsGridThumbnail } from "./ProjectsGridThumbnail/ProjectsGridThumbnail";
 
 interface Props {
   data: AllProjectsQuery;

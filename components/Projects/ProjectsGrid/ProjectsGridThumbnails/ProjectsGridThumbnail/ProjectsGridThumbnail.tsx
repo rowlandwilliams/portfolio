@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
-import { AllProjectFieldsFragment } from "../../../../graphql/generated";
+import { AllProjectFieldsFragment } from "../../../../../graphql/generated";
 
 interface Props {
   project: AllProjectFieldsFragment;
@@ -17,7 +17,7 @@ export const ProjectsGridThumbnail = ({ project }: Props) => {
         query: { id: _id },
       }}
       className={classNames(
-        "border relative border-gray-600 rounded-lg overflow-hidden p-4 hover:border-2 min-h-[300px]",
+        "border-2 relative border-gray-800 rounded-lg overflow-hidden p-4 hover:border-2 min-h-[300px]",
         [`hover:border-${color}`]
       )}
     >
