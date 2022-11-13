@@ -1,5 +1,5 @@
 const projectColors = [
-  "indigo-600",
+  "indigo-800",
   "lime-400",
   "blue-800",
   "fuchsia-500",
