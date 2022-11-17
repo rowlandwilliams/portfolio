@@ -16,10 +16,10 @@ const getSafelistColors = () => {
     .flat();
 };
 
-const safeListColors = getSafelistColors();
+const projectSafelistColors = getSafelistColors();
 
 const safeList = [
-  ...safeListColors,
+  ...projectSafelistColors,
   "stroke-indigo-400",
   "stroke-pink-400",
   "stroke-yellow-400",

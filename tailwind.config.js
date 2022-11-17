@@ -12,6 +12,9 @@ module.exports = {
     extend: {
       colors: {
         "dark-gray": "#0f111a",
+        "chart-purple": "#C479FF",
+        "chart-red": "#FF6868",
+        "chart-yellow": "#FFFA7A",
       },
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],

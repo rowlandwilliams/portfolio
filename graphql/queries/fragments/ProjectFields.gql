@@ -31,4 +31,7 @@ fragment ProjectFields on Project {
   }
   deliverables
   locations
+  category {
+    name
+  }
 }

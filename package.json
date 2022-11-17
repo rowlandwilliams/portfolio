@@ -24,7 +24,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "topojson-client": "^3.1.0",
-    "urql": "^3.0.3"
+    "urql": "^3.0.3",
+    "zustand": "^4.1.4"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^2.13.11",
