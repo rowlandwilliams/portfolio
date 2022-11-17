@@ -31,7 +31,7 @@ export const ProjectTemplateOverview = ({ project }: Props) => {
   const borderColorClass = `border-${color}`;
   const deliverablesHeaderText = jobTitle ? "Responsibilities" : "Deliverables";
   return (
-    <UiSectionWithMargin yPadding className="h-screen">
+    <UiSectionWithMargin yPadding className="md:h-screen">
       <h1
         className={classNames(
           "text-6xl text-white border-b pb-8 animate-fade-in-down",
@@ -40,7 +40,7 @@ export const ProjectTemplateOverview = ({ project }: Props) => {
       >
         {summary}
       </h1>
-      <article className="py-8 grid grid-cols-2">
+      <article className="py-8 grid grid-cols-1 md:grid-cols-2 gap-y-8">
         <section className="space-y-8">
           <ProjectTemplateOverviewCompany
             companyLogo={companyLogo}

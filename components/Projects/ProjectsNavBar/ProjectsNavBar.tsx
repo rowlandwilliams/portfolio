@@ -3,9 +3,9 @@ import { ProjectsNavBarOption } from "./ProjectsNavBarOption/ProjectsNavBarOptio
 interface Props {
   activeOption: string;
 }
-const navBarOptions = ["grid", "timeline", "map", "network"];
+const navBarOptions = ["grid"];
 
-export const ProjectsNavBar = ({ activeOption,  }: Props) => {
+export const ProjectsNavBar = ({ activeOption }: Props) => {
   return (
     <section className="flex justify-end border-b pb-2 border-gray-600">
       <nav className="flex gap-x-2">
