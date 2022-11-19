@@ -5,16 +5,8 @@ import { DummyBrowserTab } from "../../../../../types";
 import { HomePageDummyBrowserHeaderTabClose } from "./HomePageDummyBrowserHeaderTabClose/HomePageDummyBrowserHeaderTabClose";
 
 interface Props {
-  tab: {
-    title: string;
-    iconName: string;
-    component: JSX.Element;
-  };
-  handleClick: (tab: {
-    title: string;
-    iconName: string;
-    component: JSX.Element;
-  }) => void;
+  tab: DummyBrowserTab;
+  handleClick: (tab: DummyBrowserTab) => void;
   activeTab: DummyBrowserTab;
 }
 
@@ -35,7 +27,7 @@ export const HomePageDummyBrowserHeaderTab = ({
     <button
       type="button"
       className={classNames(
-        " w-44 h-8 rounded-t-lg px-3 py-2 text-gray-800 flex gap-x-2 items-center justify-between relative",
+        " w-44 h-8 rounded-t-lg px-3 py-2 text-gray-800 flex gap-x-2 items-center justify-between relative overflow-x-hidden",
         {
           "bg-gray-200": active,
           "hover:bg-gray-300 hover:bg-opacity-20": !active,
@@ -52,7 +44,7 @@ export const HomePageDummyBrowserHeaderTab = ({
           height={16}
           alt={iconName}
         />
-        {title}
+        <span className="whitespace-nowrap">{title}</span>
       </div>
       <HomePageDummyBrowserHeaderTabClose />
       {!active && !hovered && (

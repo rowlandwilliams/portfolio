@@ -25,6 +25,7 @@ export type Stocks = StockDay[];
 export interface DummyBrowserTab {
   title: string;
   iconName: string;
+  placeholder: string;
   component: JSX.Element;
 }
 

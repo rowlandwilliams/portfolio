@@ -27,7 +27,7 @@ export const HomePageDummyBrowserHeader = ({
           />
         ))}
       </div>
-      <HomePageDummyBrowserHeaderSearchBar />
+      <HomePageDummyBrowserHeaderSearchBar activeTab={activeTab} />
     </section>
   );
 };

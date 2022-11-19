@@ -10,8 +10,7 @@ export const HomePageBioText = () => {
         visualise complex information.
       </h3>
       <h4>
-        React, TypeScript, GraphQL and d3.js amongst other
-        emerging technologies.
+        React, TypeScript, GraphQL and d3.js are some of the technologies I currently use.
       </h4>
     </section>
   );

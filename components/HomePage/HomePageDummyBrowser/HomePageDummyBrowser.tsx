@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { DummyBrowserTabs } from "../../../types";
+import { DummyBrowserTab, DummyBrowserTabs } from "../../../types";
 import { ClusterAnalysis } from "../../ProjectUiComponents/ClusterAnalysis/ClusterAnalysis";
 import { HomePageDummyBrowserHeader } from "./HomePageDummyBrowserHeader/HomePageDummyBrowserHeader";
 
@@ -7,11 +7,13 @@ const tabs: DummyBrowserTabs = [
   {
     title: "Cluster Analyzer",
     iconName: "cluster-analysis",
+    placeholder: "drag-the-green.square",
     component: <ClusterAnalysis />,
   },
   {
     title: "Stock Chart",
-    iconName: "cluster-analysis",
+    iconName: "stock-chart",
+    placeholder: "drag-the-bottom.chart",
     component: (
       <iframe
         src="https://rowlandwilliams.github.io/stock-chart/"
@@ -21,7 +23,8 @@ const tabs: DummyBrowserTabs = [
   },
   {
     title: "Sankey",
-    iconName: "cluster-analysis",
+    iconName: "sankey",
+    placeholder: "hover-over-links-and-click-the.nodes",
     component: (
       <iframe
         src="https://migration-sankey.vercel.app/"
@@ -34,15 +37,11 @@ const tabs: DummyBrowserTabs = [
 export const HomePageDummyBrowser = () => {
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
-  const handleClick = (tab: {
-    title: string;
-    iconName: string;
-    component: JSX.Element;
-  }) => setActiveTab(tab);
+  const handleClick = (tab: DummyBrowserTab) => setActiveTab(tab);
 
   const { component } = activeTab;
   return (
-    <section className="h-[600px] md:h-auto flex-grow rounded-xl overflow-hidden border-t border-x border-y border-gray-700 flex flex-col flex-shrink-0 md:w-7/12">
+    <section className="h-[740px] md:h-[500px] lg:h-auto flex-grow rounded-xl overflow-hidden border-t border-x border-y border-gray-700 flex flex-col flex-shrink-0 lg:w-7/12">
       <HomePageDummyBrowserHeader
         tabs={tabs}
         handleClick={handleClick}
