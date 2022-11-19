@@ -21,3 +21,11 @@ export interface StockDay {
 }
 
 export type Stocks = StockDay[];
+
+export interface DummyBrowserTab {
+  title: string;
+  iconName: string;
+  component: JSX.Element;
+}
+
+export type DummyBrowserTabs = DummyBrowserTab[];
