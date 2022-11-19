@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const HomePageBioText = () => {
   return (
     <section className="space-y-4 text-lg text-gray-100">
@@ -9,9 +11,20 @@ export const HomePageBioText = () => {
         I connect data, design and technology to build apps that explore and
         visualise complex information.
       </h3>
-      <h4>
-        React, TypeScript, GraphQL and d3.js are some of the technologies I currently use.
+      <h4 className="text-base">
+        React, TypeScript, GraphQL and d3.js are some of the technologies I use.
       </h4>
+      <h5 className="text-base">
+        Currently, I am Engineering Lead at{" "}
+        <Image
+          src={"/home/kulea.svg"}
+          width={70}
+          height={100}
+          alt="kulea"
+          className="inline ml-2 mr-0.5 mb-0.5"
+        />
+        , a commodity intelligence start-up in Nairobi, Kenya.
+      </h5>
     </section>
   );
 };
