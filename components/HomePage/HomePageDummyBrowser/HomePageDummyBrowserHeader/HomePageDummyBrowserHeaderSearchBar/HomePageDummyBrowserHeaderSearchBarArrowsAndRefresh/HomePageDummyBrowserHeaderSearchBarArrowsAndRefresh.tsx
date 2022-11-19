@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export const HomePageDummyBrowserHeaderSearchBarArrows = () => {
+export const HomePageDummyBrowserHeaderSearchBarArrowsAndRefresh = () => {
   return (
     <>
       <Image
