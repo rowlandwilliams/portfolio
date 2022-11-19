@@ -12,7 +12,7 @@ export const BaseLayout = ({ children, noPadding = false }: Props) => {
     <>
       <NavBar />
       <article
-        className={classNames("h-screen ", {
+        className={classNames("", {
           "px-4 md:px-16 py-16": !noPadding,
         })}
       >

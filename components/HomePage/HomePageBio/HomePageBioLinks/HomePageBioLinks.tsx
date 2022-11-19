@@ -24,14 +24,14 @@ export const HomePageBioLinks = () => {
           target="_blank"
           className="hover:opacity-80"
         >
-          <Image src="/github.svg" width={24} height={24} alt="github" />
+          <Image src="/github.svg" width={22} height={22} alt="github" />
         </Link>
         <Link
           href="https://www.linkedin.com/in/rowland-williams-51649318b/"
           target="_blank"
           className="hover:opacity-80"
         >
-          <Image src="/linkedin.svg" width={24} height={24} alt="linkedin" />
+          <Image src="/linkedin.svg" width={22} height={22} alt="linkedin" />
         </Link>
       </div>
     </section>
