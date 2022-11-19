@@ -78,7 +78,7 @@ export const HomeGraph = () => {
   }, [graphWidth, lineOffsets, lineLengths, animating]);
 
   return (
-    <div ref={ref} className="h-full w-full">
+    <div ref={ref} className="h-full w-full absolute">
       <svg
         width={graphWidth}
         height={graphHeight}
