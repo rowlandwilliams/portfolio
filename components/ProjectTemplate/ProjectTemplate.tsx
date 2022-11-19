@@ -10,7 +10,7 @@ interface Props {
 
 export const ProjectTemplate = ({ project }: Props) => {
   const { name, mainImage, category } = project;
-  console.log(category);
+
   const isClient = category?.name === "Client";
   return (
     <div className="text-base space-y-8 mb-32">
@@ -19,8 +19,8 @@ export const ProjectTemplate = ({ project }: Props) => {
       )}
       {isClient && <ProjectTemplateOverview project={project} />}
       {isClient && <ProjectTemplateImages project={project} />}{" "}
-      <ProjectUiComponents name={name} />      {!isClient && <ProjectTemplateOverview project={project} />}
-
+      <ProjectUiComponents name={name} />{" "}
+      {!isClient && <ProjectTemplateOverview project={project} />}
     </div>
   );
 };
