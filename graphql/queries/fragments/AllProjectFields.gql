@@ -10,4 +10,7 @@ fragment AllProjectFields on Project {
   slug {
     current
   }
+  category {
+    name
+  }
 }

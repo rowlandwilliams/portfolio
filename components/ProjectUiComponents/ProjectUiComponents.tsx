@@ -50,7 +50,10 @@ export const ProjectUiComponents = ({ name }: Props) => {
   const uiComponents = getProjectUiComponents(name);
 
   return (
-    <UiSectionWithMargin className="h-[700px] rounded-lg overflow-hidden" yPadding>
+    <UiSectionWithMargin
+      className="h-[700px] rounded-lg"
+      yPadding
+    >
       {uiComponents}
     </UiSectionWithMargin>
   );

@@ -6,9 +6,23 @@ interface Props {
 }
 
 export const ProjectsGridThumbnails = ({ data }: Props) => {
+  const { allProject } = data;
+
+  const clientProjects = allProject.filter(
+    (project) => project.category?.name === "Client"
+  );
+
+  const nonClientProjects = allProject.filter(
+    (project) => project.category?.name !== "Client"
+  );
+
   return (
     <>
-      {data.allProject.map((project) => (
+      {clientProjects.map((project) => (
+        <ProjectsGridThumbnail project={project} key={project._id} />
+      ))}
+
+      {nonClientProjects.map((project) => (
         <ProjectsGridThumbnail project={project} key={project._id} />
       ))}
     </>

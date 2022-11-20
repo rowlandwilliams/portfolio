@@ -17,7 +17,7 @@ export const ProjectsGridThumbnail = ({ project }: Props) => {
         query: { id: _id },
       }}
       className={classNames(
-        "border-2 relative border-gray-800 rounded-lg overflow-hidden p-4 hover:border-2 min-h-[300px]",
+        "border-2 relative border-transparent rounded-lg overflow-hidden p-4 min-h-[300px]",
         [`hover:border-${color}`]
       )}
     >
