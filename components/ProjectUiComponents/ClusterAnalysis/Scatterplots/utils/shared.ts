@@ -8,7 +8,7 @@ const pointRed = "#FF6868";
 const pointYellow = "#FFFA7A";
 const pointPink = "#f472b6";
 
-const pointColors = {
+const pointColors: { [key: number]: string } = {
   0: pointYellow,
   1: pointRed,
   2: pointPurple,
