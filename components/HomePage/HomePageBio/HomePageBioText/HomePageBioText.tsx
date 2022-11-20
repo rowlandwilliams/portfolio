@@ -6,7 +6,7 @@ export const HomePageBioText = () => {
       <h1>Welcome...</h1>
       <h2 className="text-2xl font-medium text-white">
         I am a{" "}
-        <span className="text-yellow-300">Software Engineer and UX Designer.</span>
+        <span className="text-yellow-300">Software Engineer</span> and <span className="text-red-400">UX Designer</span>.
       </h2>
       <h3>
         I connect <span className="text-sky-400 font-medium">data</span>,{" "}
