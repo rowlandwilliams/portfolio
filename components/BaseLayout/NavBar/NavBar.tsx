@@ -20,8 +20,8 @@ export const NavBar = () => {
         >
           Projects
         </Link>
-        <Link href="/about" className="font-medium hover:underline">
-          About
+        <Link href="/cv" className="font-medium hover:underline">
+          CV
         </Link>
       </nav>
     </article>

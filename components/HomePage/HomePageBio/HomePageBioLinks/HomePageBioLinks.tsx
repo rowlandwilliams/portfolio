@@ -12,7 +12,7 @@ export const HomePageBioLinks = () => {
           View Projects <span className="text-sky-300">{"->"}</span>
         </Link>
         <Link
-          href="/projects?view=grid"
+          href="/cv"
           className="border text-sm px-4 py-0.5 border-chart-red rounded-2xl hover:opacity-80"
         >
           View CV <span className="text-chart-red">{"->"}</span>
