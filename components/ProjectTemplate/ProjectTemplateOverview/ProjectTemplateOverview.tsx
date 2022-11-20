@@ -26,12 +26,14 @@ export const ProjectTemplateOverview = ({ project }: Props) => {
     technologies,
     locations,
     overviewRaw,
+    solutionRaw,
+    problemRaw,
   } = project;
 
   const borderColorClass = `border-${color}`;
   const deliverablesHeaderText = jobTitle ? "Responsibilities" : "Deliverables";
   return (
-    <UiSectionWithMargin yPadding className="md:h-screen">
+    <UiSectionWithMargin yPadding className="pb-24">
       <h1
         className={classNames(
           "text-6xl text-white border-b pb-8 animate-fade-in-down",
@@ -62,12 +64,30 @@ export const ProjectTemplateOverview = ({ project }: Props) => {
             borderColorClass={borderColorClass}
           />
         </section>
-        <ProjectTemplateOverviewTitleAndChildSection title="Overview">
-          <PortableText
-            value={overviewRaw}
-            components={ProjectTemplatePortableTextComponents}
-          />
-        </ProjectTemplateOverviewTitleAndChildSection>
+        <section className="space-y-8">
+          <ProjectTemplateOverviewTitleAndChildSection title="Overview">
+            <PortableText
+              value={overviewRaw}
+              components={ProjectTemplatePortableTextComponents}
+            />
+          </ProjectTemplateOverviewTitleAndChildSection>
+          {problemRaw && (
+            <ProjectTemplateOverviewTitleAndChildSection title="The Problem">
+              <PortableText
+                value={problemRaw}
+                components={ProjectTemplatePortableTextComponents}
+              />
+            </ProjectTemplateOverviewTitleAndChildSection>
+          )}
+          {solutionRaw && (
+            <ProjectTemplateOverviewTitleAndChildSection title="The Solution">
+              <PortableText
+                value={solutionRaw}
+                components={ProjectTemplatePortableTextComponents}
+              />
+            </ProjectTemplateOverviewTitleAndChildSection>
+          )}
+        </section>
       </article>
     </UiSectionWithMargin>
   );

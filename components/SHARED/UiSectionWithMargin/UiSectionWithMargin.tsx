@@ -5,12 +5,14 @@ interface Props {
   children: ReactNode;
   className?: string;
   yPadding?: boolean;
+  padTop?: boolean;
 }
 
 export const UiSectionWithMargin = ({
   children,
   className = undefined,
   yPadding = false,
+  padTop = false,
 }: Props) => {
   return (
     <section
