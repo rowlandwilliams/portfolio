@@ -3,7 +3,7 @@ import Image from "next/image";
 export const HomePageBioText = () => {
   return (
     <section className="space-y-4 text-lg text-gray-100">
-      <h1>🌊 Welcome...</h1>
+      <h1>Welcome...</h1>
       <h2 className="text-2xl font-medium text-white">
         I am a{" "}
         <span className="text-yellow-300">Software Engineer</span> and <span className="text-red-400">UX Designer</span>.
