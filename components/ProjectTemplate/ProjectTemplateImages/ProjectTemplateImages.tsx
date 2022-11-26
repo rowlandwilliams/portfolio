@@ -15,11 +15,11 @@ export const ProjectTemplateImages = ({ project }: Props) => {
   const lastImageIndex = nProjectImages ? nProjectImages - 1 : null;
   return (
     <section
-      className={classNames("md:h-screen py-8 flex items-center", [
+      className={classNames("h-screen p-4 py-8 flex items-center", [
         `bg-${color}`,
       ])}
     >
-      <SectionWithDisabledHorizontalScroll className=" md:h-[700px] md:flex gap-x-4 py-8 overflow-y-hidden">
+      <SectionWithDisabledHorizontalScroll className="h-[700px] flex gap-x-4 py-8 overflow-y-hidden">
         {projectImages &&
           projectImages?.map((project, i) =>
             project?.image && nProjectImages ? (

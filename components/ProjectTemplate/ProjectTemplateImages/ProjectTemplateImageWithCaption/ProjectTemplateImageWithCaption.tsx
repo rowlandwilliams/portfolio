@@ -26,14 +26,14 @@ export const ProjectTemplateImageWithCaption = ({
 
   return image?.asset?.url && name ? (
     <div
-      className={classNames("relative md:min-w-[1000px]", {
-        "ml-16": isFirst,
-        "mr-16": isLast,
+      className={classNames("relative h-full min-w-[1000px] rounded-lg", {
+        "md:ml-16": isFirst,
+        "md:mr-16": isLast,
       })}
       onMouseEnter={mouseEnter}
       onMouseLeave={mouseLeave}
     >
-      <Image src={image?.asset?.url} alt={alt} fill className="rounded-lg " />
+      <Image src={image?.asset?.url} alt={alt} fill unoptimized />
       {caption && (
         <p
           className={classNames(
@@ -48,5 +48,6 @@ export const ProjectTemplateImageWithCaption = ({
         </p>
       )}
     </div>
-  ) : null;
+  ) : // </div>
+  null;
 };
