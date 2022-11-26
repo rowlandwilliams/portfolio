@@ -11,6 +11,6 @@ const CV = () => {
   );
 };
 
-CV.getLayout = (page: ReactElement) => <BaseLayout>{page}</BaseLayout>;
+CV.getLayout = (page: ReactElement) => <BaseLayout padTop>{page}</BaseLayout>;
 
 export default CV;

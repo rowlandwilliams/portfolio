@@ -2,6 +2,7 @@ import { axisBottom, axisLeft } from "d3-axis";
 import { scaleLinear, ScaleLinear, scaleTime, ScaleTime } from "d3-scale";
 import { select, Selection } from "d3-selection";
 import { Point } from "../../../../../types/cluster-analysis";
+import { clusterStore } from "./../../../../../store/cluster";
 
 const pointPurple = "#C479FF";
 const pointRed = "#FF6868";
@@ -35,13 +36,14 @@ export const getClusterYAxis = (
   yScale: ScaleLinear<number, number, never>,
   isZoom = false
 ) => {
-  console.log("width", parentWidth, isZoom);
   const yAxis = axisLeft(yScale)
-    .ticks(10)
+    .ticks(isZoom ? 5 : 10)
     .tickSize(-(parentWidth - graphMargin.left - graphMargin.right));
 
   return yAxis;
 };
+
+const tooltipYPadding = 10;
 
 export const plotPoints = (
   pointsGroup: Selection<SVGGElement, unknown, HTMLElement, unknown>,
@@ -49,6 +51,9 @@ export const plotPoints = (
   xScale: ScaleTime<number, number, never> | ScaleLinear<number, number, never>,
   yScale: ScaleLinear<number, number, never>
 ) => {
+  const { setCoordsAndTooltipData, setPointIsHovered } =
+    clusterStore.getState();
+
   return pointsGroup
     .selectAll("circle")
     .data(pointsData)
@@ -58,7 +63,17 @@ export const plotPoints = (
     .attr("cy", (d) => yScale(d.y))
     .attr("r", 3)
     .attr("fill", (d) => pointColors[d.group])
-    .on("mouseover", (d) => console.log(d.x, d));
+    .on("mouseenter", (d, nodes) => {
+      const { x, y, group } = nodes;
+      setCoordsAndTooltipData({
+        coords: { x: xScale(x), y: yScale(y) - tooltipYPadding },
+        tooltipData: { x, y, group },
+      });
+      setPointIsHovered(true);
+    })
+    .on("mouseleave", () => {
+      setPointIsHovered(false);
+    });
 };
 
 export const getGraphSelections = (graphId = "main") => {

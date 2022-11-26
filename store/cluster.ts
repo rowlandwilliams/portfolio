@@ -1,6 +1,6 @@
 import create from "zustand";
 import { graphMargin } from "../components/ProjectUiComponents/ClusterAnalysis/Scatterplots/utils/shared";
-import { Point } from "../types/cluster-analysis";
+import { CoordsWithTooltipData, Point } from "../types/cluster-analysis";
 
 interface AppState {
   zoomGraphDomains: number[][];
@@ -8,6 +8,12 @@ interface AppState {
   pointsData: Point[];
   activeSelector: string;
   setActiveSelector: (selectorText: string) => void;
+  coordsAndTooltipData: CoordsWithTooltipData;
+  setCoordsAndTooltipData: (
+    coordsAndTooltipData: CoordsWithTooltipData
+  ) => void;
+  pointIsHovered: boolean;
+  setPointIsHovered: (pointIsHovered: boolean) => void;
 }
 
 const points = [...Array(300)].map(() => ({
@@ -26,4 +32,12 @@ export const clusterStore = create<AppState>((set) => ({
   pointsData: points,
   activeSelector: "PCA",
   setActiveSelector: (activeSelector: string) => set({ activeSelector }),
+  coordsAndTooltipData: {
+    coords: { x: 0, y: 0 },
+    tooltipData: { x: 0, y: 0, group: 1 },
+  },
+  setCoordsAndTooltipData: (coordsAndTooltipData: CoordsWithTooltipData) =>
+    set({ coordsAndTooltipData }),
+  pointIsHovered: false,
+  setPointIsHovered: (pointIsHovered: boolean) => set({ pointIsHovered }),
 }));

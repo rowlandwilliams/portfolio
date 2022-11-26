@@ -14,7 +14,7 @@ module.exports = {
         "dark-gray": "#0f111a",
         "chart-purple": "#C479FF",
         "chart-red": "#FF6868",
-        "chart-yellow": "#FFFA7A",
+        "chart-yellow": "#facc15",
       },
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
