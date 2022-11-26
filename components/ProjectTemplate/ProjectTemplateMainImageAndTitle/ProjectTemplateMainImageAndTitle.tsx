@@ -18,6 +18,7 @@ export const ProjectTemplateMainImageAndTitle = ({
           fill
           alt={name}
           className="object-cover"
+          unoptimized
         />
       )}
       <div className="bg-gradient-to-b from-dark-gray to-transparent h-20 absolute top-0 w-full"></div>

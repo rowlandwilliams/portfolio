@@ -36,7 +36,7 @@ export const ProjectTemplateOverview = ({ project }: Props) => {
     <UiSectionWithMargin className="pb-24">
       <h1
         className={classNames(
-          "text-6xl text-white border-b pb-8 animate-fade-in-down",
+          "text-4xl md:text-6xl text-white border-b pb-8 animate-fade-in-down",
           [borderColorClass]
         )}
       >

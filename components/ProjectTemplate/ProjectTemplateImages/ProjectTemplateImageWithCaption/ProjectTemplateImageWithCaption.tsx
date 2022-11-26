@@ -33,7 +33,7 @@ export const ProjectTemplateImageWithCaption = ({
       onMouseEnter={mouseEnter}
       onMouseLeave={mouseLeave}
     >
-      <Image src={image?.asset?.url} alt={alt} fill unoptimized />
+      <Image src={image?.asset?.url} alt={alt} fill unoptimized className="rounded-lg" />
       {caption && (
         <p
           className={classNames(
