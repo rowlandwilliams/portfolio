@@ -5,19 +5,12 @@ import { UiSectionWithMargin } from "../components/SHARED/UiSectionWithMargin/Ui
 
 const CV = () => {
   return (
-    <section className="bg-gradient-to-t from-dark-gray to-indigo-600">
-      <UiSectionWithMargin
-        yPadding
-        className="flex justify-center items-center animate-fade-in-down mb-12  "
-      >
-        <CvViewer />
-      </UiSectionWithMargin>
-    </section>
+    <UiSectionWithMargin className="flex justify-center items-center animate-fade-in-down mb-12  ">
+      <CvViewer />
+    </UiSectionWithMargin>
   );
 };
 
-CV.getLayout = (page: ReactElement) => (
-  <BaseLayout noPadding>{page}</BaseLayout>
-);
+CV.getLayout = (page: ReactElement) => <BaseLayout>{page}</BaseLayout>;
 
 export default CV;

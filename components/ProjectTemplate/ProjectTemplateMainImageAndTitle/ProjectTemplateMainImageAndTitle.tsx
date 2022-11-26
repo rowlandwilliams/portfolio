@@ -11,7 +11,7 @@ export const ProjectTemplateMainImageAndTitle = ({
   name,
 }: Props) => {
   return (
-    <div className="relative w-full h-[700px]">
+    <div className="relative w-full h-[300px] md:h-[700px]">
       {mainImage?.asset?.url && name && (
         <Image
           src={mainImage?.asset?.url}

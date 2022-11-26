@@ -5,19 +5,12 @@ import { UiSectionWithMargin } from "../components/SHARED/UiSectionWithMargin/Ui
 
 const Home = () => {
   return (
-    <section className="bg-gradient-to-t from-dark-gray to-indigo-600">
-      <UiSectionWithMargin
-        yPadding
-        className=" md:h-screen animate-fade-in-down"
-      >
-        <HomePage />
-      </UiSectionWithMargin>
-    </section>
+    <UiSectionWithMargin className="flex-grow animate-fade-in-down">
+      <HomePage />
+    </UiSectionWithMargin>
   );
 };
 
-Home.getLayout = (page: ReactElement) => (
-  <BaseLayout noPadding>{page}</BaseLayout>
-);
+Home.getLayout = (page: ReactElement) => <BaseLayout>{page}</BaseLayout>;
 
 export default Home;

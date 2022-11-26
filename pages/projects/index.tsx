@@ -1,11 +1,18 @@
 import { ReactElement } from "react";
+import { BaseLayout } from "../../components/BaseLayout/BaseLayout";
 import { ProjectsGrid } from "../../components/Projects/ProjectsGrid/ProjectsGrid";
-import { ProjectsLayout } from "../../components/ProjectsLayout/ProjectsLayout";
+import { UiSectionWithMargin } from "../../components/SHARED/UiSectionWithMargin/UiSectionWithMargin";
 
 const ProjectsPage = () => {
-  return <ProjectsGrid />;
+  return (
+    <UiSectionWithMargin className="flex-grow animate-fade-in-down">
+      <ProjectsGrid />
+    </UiSectionWithMargin>
+  );
 };
 
-ProjectsPage.getLayout = (page: ReactElement) => <ProjectsLayout />;
+ProjectsPage.getLayout = (page: ReactElement) => (
+  <BaseLayout>{page}</BaseLayout>
+);
 
 export default ProjectsPage;

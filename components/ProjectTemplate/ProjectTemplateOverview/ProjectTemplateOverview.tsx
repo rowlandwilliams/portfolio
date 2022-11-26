@@ -33,7 +33,7 @@ export const ProjectTemplateOverview = ({ project }: Props) => {
   const borderColorClass = `border-${color}`;
   const deliverablesHeaderText = jobTitle ? "Responsibilities" : "Deliverables";
   return (
-    <UiSectionWithMargin yPadding className="pb-24">
+    <UiSectionWithMargin className="pb-24">
       <h1
         className={classNames(
           "text-6xl text-white border-b pb-8 animate-fade-in-down",

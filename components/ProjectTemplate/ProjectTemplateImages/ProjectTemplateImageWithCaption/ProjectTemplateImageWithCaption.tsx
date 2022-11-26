@@ -26,7 +26,7 @@ export const ProjectTemplateImageWithCaption = ({
 
   return image?.asset?.url && name ? (
     <div
-      className={classNames("relative min-w-[1000px]", {
+      className={classNames("relative md:min-w-[1000px]", {
         "ml-16": isFirst,
         "mr-16": isLast,
       })}

@@ -41,7 +41,7 @@ export const HomePageDummyBrowser = () => {
 
   const { component } = activeTab;
   return (
-    <section className="h-[740px] md:h-[500px] lg:h-auto flex-grow rounded-xl overflow-hidden border-t border-x border-y border-gray-700 flex flex-col flex-shrink-0 lg:w-7/12">
+    <section className="h-[700px] md:h-[500px] lg:h-auto flex-grow rounded-xl overflow-hidden border-t border-x border-y border-gray-700 flex flex-col flex-shrink-0 lg:w-7/12">
       <HomePageDummyBrowserHeader
         tabs={tabs}
         handleClick={handleClick}

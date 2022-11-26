@@ -14,9 +14,7 @@ interface Props {
 
 const Project = ({ project }: Props) => <ProjectTemplate project={project} />;
 
-Project.getLayout = (page: ReactElement) => (
-  <BaseLayout noPadding>{page}</BaseLayout>
-);
+Project.getLayout = (page: ReactElement) => <BaseLayout>{page}</BaseLayout>;
 
 export const getServerSideProps: GetServerSideProps = async ({
   query,
