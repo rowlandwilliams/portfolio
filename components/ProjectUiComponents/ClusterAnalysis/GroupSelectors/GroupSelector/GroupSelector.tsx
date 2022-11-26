@@ -24,7 +24,7 @@ export const GroupSelector = ({ group, borderClass, textClass, bgClass, groupInd
         <div
             key={group}
             className={classNames(
-                'flex items-center ml-1 px-2 rounded-sm cursor-pointer transition-all duration-200',
+                'flex items-center ml-1 px-2 rounded-2xl cursor-pointer transition-all duration-200',
                 {
                     [borderClass]: isActive,
                     'border border-gray-400': !isActive,
