@@ -11,6 +11,6 @@ const Home = () => {
   );
 };
 
-Home.getLayout = (page: ReactElement) => <BaseLayout>{page}</BaseLayout>;
+Home.getLayout = (page: ReactElement) => <BaseLayout padTop>{page}</BaseLayout>;
 
 export default Home;

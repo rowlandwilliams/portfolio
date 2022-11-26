@@ -12,7 +12,7 @@ const ProjectsPage = () => {
 };
 
 ProjectsPage.getLayout = (page: ReactElement) => (
-  <BaseLayout>{page}</BaseLayout>
+  <BaseLayout padTop>{page}</BaseLayout>
 );
 
 export default ProjectsPage;
