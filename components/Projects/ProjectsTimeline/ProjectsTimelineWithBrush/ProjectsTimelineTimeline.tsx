@@ -82,13 +82,6 @@ export const ProjectsTimelineWithBrush = ({ data }: Props) => {
           <g
             id={"x-axis"}
             className="font-sans text-gray-600"
-            // ref={(node) =>
-            //   select<SVGSVGElement, null>(node as SVGSVGElement)
-            //     .call(xAxis)
-            //     .call((g) =>
-            //       g.selectAll(".domain, .tick > line").attr("stroke", gray100)
-            //     )
-            // }
             transform={`translate(0, ${graphHeight - padding})`}
           ></g>
         </svg>

@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { selectAll } from "d3-selection";
 import { debounce } from "lodash";
 import { useEffect, useRef, useState } from "react";
 import { clusterStore } from "../../../../../store/cluster";
@@ -32,6 +33,9 @@ export const ZoomGraph = () => {
 
   useEffect(() => {
     plotZoomGraph(parentWidth, parentHeight, zoomGraphDomains);
+
+    // after both graphs plotted set color of all graph axis lines
+    selectAll(".tick > line, .domain").attr("stroke-width", "0.1");
   }, [parentWidth, parentHeight, zoomGraphDomains]);
 
   return (

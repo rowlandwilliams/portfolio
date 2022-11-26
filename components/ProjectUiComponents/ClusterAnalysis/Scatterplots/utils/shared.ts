@@ -15,7 +15,7 @@ const pointColors: { [key: number]: string } = {
   3: pointPink,
 };
 
-const axisPadding = 10;
+const axisPadding = 0;
 export const graphMargin = { top: 40, right: 40, bottom: 40, left: 40 };
 
 export const getClusterXAxis = (
@@ -35,8 +35,9 @@ export const getClusterYAxis = (
   yScale: ScaleLinear<number, number, never>,
   isZoom = false
 ) => {
+  console.log("width", parentWidth, isZoom);
   const yAxis = axisLeft(yScale)
-    .ticks(isZoom ? 5 : 10)
+    .ticks(10)
     .tickSize(-(parentWidth - graphMargin.left - graphMargin.right));
 
   return yAxis;

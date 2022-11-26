@@ -1,4 +1,3 @@
-import { selectAll } from "d3-selection";
 import {
   getClusterXAxis,
   getXScale,
@@ -25,8 +24,6 @@ export const plotZoomGraph = (
 
   const yAxisScale = getYScale(parentHeight, yDomain);
   const yAxis = getClusterYAxis(parentWidth, yAxisScale, true);
-
-  selectAll(".tick > line, .domain").attr("stroke-width", "0.1");
 
   yAxisGroup.call(yAxis);
 
