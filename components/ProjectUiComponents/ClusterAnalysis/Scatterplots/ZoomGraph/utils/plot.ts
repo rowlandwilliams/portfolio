@@ -27,5 +27,5 @@ export const plotZoomGraph = (
 
   yAxisGroup.call(yAxis);
 
-  plotPoints(pointsGroup, pointsData, xAxisScale, yAxisScale);
+  plotPoints(pointsGroup, pointsData, xAxisScale, yAxisScale, true);
 };

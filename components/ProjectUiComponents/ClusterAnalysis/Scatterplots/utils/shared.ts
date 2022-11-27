@@ -49,31 +49,57 @@ export const plotPoints = (
   pointsGroup: Selection<SVGGElement, unknown, HTMLElement, unknown>,
   pointsData: Point[],
   xScale: ScaleTime<number, number, never> | ScaleLinear<number, number, never>,
-  yScale: ScaleLinear<number, number, never>
+  yScale: ScaleLinear<number, number, never>,
+  isZoom = false
 ) => {
   const { setCoordsAndTooltipData, setPointIsHovered } =
     clusterStore.getState();
 
-  return pointsGroup
-    .selectAll("circle")
-    .data(pointsData)
-    .join("circle")
-    .attr("class", (d) => "group-" + d.group)
-    .attr("cx", (d) => xScale(d.x))
-    .attr("cy", (d) => yScale(d.y))
-    .attr("r", 3)
-    .attr("fill", (d) => pointColors[d.group])
-    .on("mouseenter", (d, nodes) => {
-      const { x, y, group } = nodes;
-      setCoordsAndTooltipData({
-        coords: { x: xScale(x), y: yScale(y) - tooltipYPadding },
-        tooltipData: { x, y, group },
+  if (isZoom) {
+    const under = select("#points-zoom-under");
+
+    pointsGroup
+      .selectAll("circle")
+      .data(pointsData)
+      .join("circle")
+      .attr("class", (d) => "group-" + d.group)
+      .attr("cx", (d) => xScale(d.x))
+      .attr("cy", (d) => yScale(d.y))
+      .attr("r", 3)
+      .attr("fill", (d) => pointColors[d.group])
+      .attr("pointer-events", "none");
+
+    under
+      .selectAll("circle")
+      .data(pointsData)
+      .join("circle")
+      .attr("class", (d) => "group-" + d.group)
+      .attr("cx", (d) => xScale(d.x))
+      .attr("cy", (d) => yScale(d.y))
+      .attr("r", 10)
+      .attr("fill", "transparent")
+      .on("mouseenter", (d, nodes) => {
+        const { x, y, group } = nodes;
+        setCoordsAndTooltipData({
+          coords: { x: xScale(x), y: yScale(y) - tooltipYPadding },
+          tooltipData: { x, y, group },
+        });
+        setPointIsHovered(true);
+      })
+      .on("mouseleave", () => {
+        setPointIsHovered(false);
       });
-      setPointIsHovered(true);
-    })
-    .on("mouseleave", () => {
-      setPointIsHovered(false);
-    });
+  } else {
+    pointsGroup
+      .selectAll("circle")
+      .data(pointsData)
+      .join("circle")
+      .attr("class", (d) => "group-" + d.group)
+      .attr("cx", (d) => xScale(d.x))
+      .attr("cy", (d) => yScale(d.y))
+      .attr("r", 1.5)
+      .attr("fill", (d) => pointColors[d.group]);
+  }
 };
 
 export const getGraphSelections = (graphId = "main") => {

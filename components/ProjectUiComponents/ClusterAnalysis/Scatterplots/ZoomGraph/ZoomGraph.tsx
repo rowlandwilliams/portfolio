@@ -22,7 +22,6 @@ export const ZoomGraph = () => {
     selectAll(".tick > line, .domain").attr("stroke-width", "0.1");
   }, [graphWidth, graphHeight, zoomGraphDomains]);
 
-  // console.log(mouse, pointIsHovered);
   return (
     <div
       className={classNames(
@@ -46,13 +45,14 @@ export const ZoomGraph = () => {
           id="x-axis-zoom"
           transform={`translate(0,${graphHeight - graphMargin.top})`}
           className="stroke-current stroke-0 text-chart-grid-grey font-inconsolata-regular"
-        ></g>
+        />
         <g
           id="y-axis-zoom"
           transform={`translate(${graphMargin.left}, 0)`}
           className="stroke-current stroke-0 text-chart-grid-grey font-inconsolata-regular"
-        ></g>
-        <g id="points-zoom" clipPath="url(#myClip)"></g>
+        />
+        <g id="points-zoom-under" clipPath="url(#myClip)" />
+        <g id="points-zoom" clipPath="url(#myClip)" />
       </svg>
       <ZoomGraphTooltip
         pointIsHovered={pointIsHovered}
