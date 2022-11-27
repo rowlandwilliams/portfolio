@@ -18,7 +18,7 @@ const pointColors: { [key: number]: string } = {
 
 const axisPadding = 0;
 export const graphMargin = { top: 40, right: 40, bottom: 40, left: 40 };
-
+const axisTickPadding = 10;
 export const getClusterXAxis = (
   parentHeight: number,
   xScale: ScaleTime<number, number, never> | ScaleLinear<number, number, never>,
@@ -26,7 +26,8 @@ export const getClusterXAxis = (
 ) => {
   const xAxis = axisBottom(xScale)
     .ticks(isZoom ? 5 : 10)
-    .tickSize(-(parentHeight - graphMargin.top - graphMargin.bottom));
+    .tickSize(-(parentHeight - graphMargin.top - graphMargin.bottom))
+    .tickPadding(axisTickPadding);
 
   return xAxis;
 };
@@ -38,7 +39,8 @@ export const getClusterYAxis = (
 ) => {
   const yAxis = axisLeft(yScale)
     .ticks(isZoom ? 5 : 10)
-    .tickSize(-(parentWidth - graphMargin.left - graphMargin.right));
+    .tickSize(-(parentWidth - graphMargin.left - graphMargin.right))
+    .tickPadding(axisTickPadding);
 
   return yAxis;
 };
