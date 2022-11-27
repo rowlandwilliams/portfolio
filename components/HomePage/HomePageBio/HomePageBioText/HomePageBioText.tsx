@@ -2,11 +2,11 @@ import Image from "next/image";
 
 export const HomePageBioText = () => {
   return (
-    <section className="space-y-4 text-lg text-gray-100">
+    <section className="space-y-4 text-lg text-gray-100 border-b border-gray-700 pb-4">
       <h1>Welcome...</h1>
       <h2 className="text-2xl font-medium text-white">
-        I am a{" "}
-        <span className="text-yellow-300">Software Engineer</span> and <span className="text-red-400">UX Designer</span>.
+        I am a <span className="text-yellow-300">Software Engineer</span> and{" "}
+        <span className="text-red-400">UX Designer</span>.
       </h2>
       <h3>
         I connect <span className="text-sky-400 font-medium">data</span>,{" "}

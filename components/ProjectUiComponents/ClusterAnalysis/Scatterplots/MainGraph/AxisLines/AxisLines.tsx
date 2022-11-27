@@ -1,24 +1,24 @@
 import { graphMargin } from "../../utils/shared";
 
 interface Props {
-  parentWidth: number;
-  parentHeight: number;
+  graphWidth: number;
+  graphHeight: number;
 }
 
-export const AxisLines = ({ parentWidth, parentHeight }: Props) => {
+export const AxisLines = ({ graphWidth, graphHeight }: Props) => {
   return (
     <g className="stroke-current text-chart-grid-grey font-inconsolata-regular">
       <line
         x1={graphMargin.left}
-        x2={parentWidth - graphMargin.right}
-        y1={parentHeight / 2}
-        y2={parentHeight / 2}
+        x2={graphWidth - graphMargin.right}
+        y1={graphHeight / 2}
+        y2={graphHeight / 2}
       ></line>
       <line
         y1={graphMargin.left}
-        y2={parentHeight - graphMargin.right}
-        x1={parentWidth / 2}
-        x2={parentWidth / 2}
+        y2={graphHeight - graphMargin.right}
+        x1={graphWidth / 2}
+        x2={graphWidth / 2}
       ></line>
     </g>
   );

@@ -3,7 +3,7 @@ import { bisector } from "d3-array";
 import { pointer, selectAll } from "d3-selection";
 import Image from "next/image";
 import { MouseEvent, useEffect, useState } from "react";
-import { useResponsiveGraphWidth } from "../../hooks/useResponsiveGraphWidth";
+import { useResponsiveGraphDims } from "../../hooks/useResponsiveGraphWidth";
 import { HomeGraphTooltipInfo } from "../../types";
 import stocks from "../data/stocks-long.json";
 import { HomeGraphFocus } from "./HomeGraphFocus/HomeGraphFocus";
@@ -33,7 +33,7 @@ export const HomeGraph = () => {
   const [lineLengths, setLineLengths] = useState<number[]>([]);
   const [animating, setAnimating] = useState<boolean>(true);
 
-  const { ref, graphWidth, graphHeight } = useResponsiveGraphWidth();
+  const { ref, graphWidth, graphHeight } = useResponsiveGraphDims();
 
   const { xScale, yScale, lineGenerator } = getHomeGraphScalesAndLineGenerator(
     datesDomain,
