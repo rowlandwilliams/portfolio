@@ -1,6 +1,7 @@
 fragment AllProjectFields on Project {
   _id
   name
+  summary
   color
   mainImage {
     asset {
@@ -13,4 +14,11 @@ fragment AllProjectFields on Project {
   category {
     name
   }
+  companyLogo {
+    asset {
+      url
+    }
+  }
+  companyUrl
+  deliverables
 }

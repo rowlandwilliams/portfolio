@@ -13,7 +13,7 @@ export const ProjectTemplate = ({ project }: Props) => {
 
   const isClient = category?.name === "Client";
   return (
-    <div className="text-base space-y-8 bg-dark-gray">
+    <div className="text-base space-y-8">
       {isClient ? (
         <ProjectTemplateMainImageAndTitle mainImage={mainImage} name={name} />
       ) : (

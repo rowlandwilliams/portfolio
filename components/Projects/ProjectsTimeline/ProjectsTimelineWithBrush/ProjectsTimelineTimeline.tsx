@@ -3,7 +3,7 @@ import { brushX } from "d3-brush";
 import { scaleTime } from "d3-scale";
 import { select } from "d3-selection";
 import { useEffect, useState } from "react";
-import { useResponsiveGraphWidth } from "../../../../hooks/useResponsiveGraphWidth";
+import { useResponsiveGraphDims } from "../../../../hooks/useResponsiveGraphWidth";
 import { Project } from "../../../../types/projects";
 import { ProjectsTimelineBrush } from "./ProjectsTimelineBrush/ProjectsTimelineBrush";
 
@@ -22,7 +22,7 @@ export const ProjectsTimelineWithBrush = ({ data }: Props) => {
     now,
   ]);
 
-  const { graphWidth, graphHeight, ref } = useResponsiveGraphWidth();
+  const { graphWidth, graphHeight, ref } = useResponsiveGraphDims();
 
   const { allProject: projects } = data;
 

@@ -10,7 +10,7 @@ export const ClusterAnalysis = ({ roundCorners = false }: Props) => {
   return (
     <section
       className={classNames(
-        "h-full flex flex-col bg-[#1D2025]",
+        "h-full flex flex-col bg-[#1D2025] text-xs",
         {
           "rounded-lg": roundCorners,
         }

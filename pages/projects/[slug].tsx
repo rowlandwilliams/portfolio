@@ -14,7 +14,9 @@ interface Props {
 
 const Project = ({ project }: Props) => <ProjectTemplate project={project} />;
 
-Project.getLayout = (page: ReactElement) => <BaseLayout>{page}</BaseLayout>;
+Project.getLayout = (page: ReactElement) => (
+  <BaseLayout padTop={!page.props.isClient}>{page}</BaseLayout>
+);
 
 export const getServerSideProps: GetServerSideProps = async ({
   query,
@@ -27,7 +29,10 @@ export const getServerSideProps: GetServerSideProps = async ({
       .toPromise();
 
     return {
-      props: { project: data?.Project },
+      props: {
+        project: data?.Project,
+        isClient: data?.Project?.category?.name === "Client",
+      },
     };
   }
 

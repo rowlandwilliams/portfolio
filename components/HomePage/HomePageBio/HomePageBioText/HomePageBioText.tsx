@@ -5,12 +5,12 @@ export const HomePageBioText = () => {
     <section className="space-y-4 text-lg text-gray-100 border-b border-gray-700 pb-4">
       <h1>Welcome...</h1>
       <h2 className="text-2xl font-medium text-white">
-        I am a <span className="text-yellow-300">Software Engineer</span> and{" "}
-        <span className="text-red-400">UX Designer</span>.
+        I am a <span className="text-yellow-300">Software Engineer</span> interested in {" "}
+        <span className="text-indigo-400">Data Visualisation</span>.
       </h2>
       <h3>
         I connect <span className="text-sky-400 font-medium">data</span>,{" "}
-        <span className="text-red-400 font-medium">design</span> and{" "}
+        <span className="text-indigo-400 font-medium">design</span> and{" "}
         <span className="text-yellow-300 font-medium">technology</span> to build
         apps that explore and visualise complex information.
       </h3>

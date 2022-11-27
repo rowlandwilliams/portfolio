@@ -5,7 +5,7 @@ import { DebouncedFunc } from "lodash";
 import debounce from "lodash.debounce";
 import { Dispatch, MouseEvent, SetStateAction, useState } from "react";
 import { feature } from "topojson-client";
-import { useResponsiveGraphWidth } from "../../../hooks/useResponsiveGraphWidth";
+import { useResponsiveGraphDims } from "../../../hooks/useResponsiveGraphWidth";
 import world from "./data/110m.json";
 
 const polygons = feature(world as any, world.objects.countries as any) as any;
@@ -67,7 +67,7 @@ export const ProjectsMap = () => {
     setConstituency(properties.NAME_2);
   }, 5);
 
-  const { ref, graphWidth, graphHeight } = useResponsiveGraphWidth();
+  const { ref, graphWidth, graphHeight } = useResponsiveGraphDims();
 
   const projection = geoNaturalEarth1().fitExtent(
     [

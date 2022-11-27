@@ -5,9 +5,10 @@ import { AllProjectFieldsFragment } from "../../../../../graphql/generated";
 
 interface Props {
   project: AllProjectFieldsFragment;
+  isSmall?: boolean;
 }
 
-export const ProjectsGridThumbnail = ({ project }: Props) => {
+export const ProjectsGridThumbnail = ({ project, isSmall = false }: Props) => {
   const { slug, _id, color, mainImage, name } = project;
 
   return (
@@ -17,8 +18,12 @@ export const ProjectsGridThumbnail = ({ project }: Props) => {
         query: { id: _id },
       }}
       className={classNames(
-        "border-2 relative border-transparent rounded-lg overflow-hidden p-4 min-h-[300px]",
-        [`hover:border-${color}`]
+        "border relative border-transparent rounded-md overflow-hidden p-4",
+        [`hover:border-${color}`],
+        {
+          "min-h-[200px]": isSmall,
+          "min-h-[300px]": !isSmall,
+        }
       )}
     >
       {mainImage?.asset?.url && name && (

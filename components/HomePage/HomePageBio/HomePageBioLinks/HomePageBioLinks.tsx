@@ -17,10 +17,10 @@ export const HomePageBioLinks = () => {
         </Link>
         <Link
           href="/cv"
-          className="border text-sm px-4 py-0.5 border-chart-red rounded-2xl hover:opacity-80 flex items-center gap-x-2"
+          className="border text-sm px-4 py-0.5 border-yellow-300 rounded-2xl hover:opacity-80 flex items-center gap-x-2"
         >
           View CV{" "}
-          <span className="text-chart-red">
+          <span className="text-yellow-300">
             <HomePageBioLinkArrow />
           </span>
         </Link>

@@ -9,7 +9,7 @@ export const ProjectsGrid = () => {
   const { data, fetching, error } = result;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+    <div >
       {fetching && <ProjectsGridLoadingSkeletons />}
       {error && <div>{error && error.message}</div>}
       {data && <ProjectsGridThumbnails data={data} />}

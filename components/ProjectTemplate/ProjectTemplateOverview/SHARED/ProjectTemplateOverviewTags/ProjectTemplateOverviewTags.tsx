@@ -10,7 +10,7 @@ export const ProjectTemplateOverviewTags = ({
   borderColorClass,
 }: Props) => {
   return (
-    <div className="text-xs max-w-[300px] flex gap-2 flex-wrap text-gray-300">
+    <div className="text-xs  flex gap-2 flex-wrap text-gray-300">
       {options.map((option) => (
         <ProjectTemplateOverviewTag
           text={option}
