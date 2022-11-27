@@ -7,7 +7,9 @@ export const HomePageBioMenu = () => {
     <section className="space-y-2">
       <nav className="flex ">
         {menuOptions.map((option) => (
-          <p className="px-4">{option}</p>
+          <p className="px-4" key={option}>
+            {option}
+          </p>
         ))}
       </nav>
       <div className="rounded-md p-4 border border-green-600">
