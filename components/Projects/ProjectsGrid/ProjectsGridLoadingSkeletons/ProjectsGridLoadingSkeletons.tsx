@@ -17,9 +17,9 @@ export const ProjectsGridLoadingSkeletons = () => {
               <div
                 key={skeleton}
                 className={classNames(
-                  "rounded-lg animate-pulse h-[378px] bg-opacity-60 border border-gray-600 bg-gray-700"
+                  "rounded-lg animate-pulse h-[378px] overflow-hidden border border-gray-600 "
                 )}
-              />
+              ><div className="w-full h-[300px] bg-opacity-60 bg-gray-700"/></div>
             ))}
           </div>
         </section>
