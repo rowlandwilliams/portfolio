@@ -11,7 +11,7 @@ export const UiSectionWithMargin = ({
   className = undefined,
 }: Props) => {
   return (
-    <section className={classNames("mx-4 md:mx-32 flex flex-col", [className])}>
+    <section className={classNames("mx-4 md:mx-20 flex flex-col", [className])}>
       {children}
     </section>
   );
