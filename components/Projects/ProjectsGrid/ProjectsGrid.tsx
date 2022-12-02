@@ -12,7 +12,7 @@ export const ProjectsGrid = () => {
     <div >
       {fetching && <ProjectsGridLoadingSkeletons />}
       {error && <div>{error && error.message}</div>}
-      {data && <ProjectsGridThumbnails data={data} />}
+      {data &&<ProjectsGridLoadingSkeletons /> }
     </div>
   );
 };

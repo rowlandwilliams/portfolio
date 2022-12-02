@@ -20,7 +20,7 @@ export const ProjectsGridThumbnails = ({ data }: Props) => {
   return (
     <article className="space-y-8">
       <section className="space-y-4">
-        <h1 className="font-medium text-2xl border-b border-gray-700">
+        <h1 className="font-medium text-xl border-b border-gray-700">
           Larger Works
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
