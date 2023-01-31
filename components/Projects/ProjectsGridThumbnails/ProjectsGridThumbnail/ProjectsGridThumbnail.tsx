@@ -9,13 +9,12 @@ interface Props {
 }
 
 export const ProjectsGridThumbnail = ({ project, isSmall = false }: Props) => {
-  const { _id, color, mainImage, name } = project;
+  const { _id, slug, color, mainImage, name } = project;
 
   return (
     <Link
       href={{
-        pathname: `/projects/${_id}`,
-        query: { id: _id },
+        pathname: `/projects/${slug?.current}/${_id}`,
       }}
       className={classNames(
         "border relative border-transparent rounded-md overflow-hidden p-4",
