@@ -1,3 +1,4 @@
+import { GetStaticProps } from "next";
 import { ReactElement } from "react";
 import { client } from "../../client";
 import { BaseLayout } from "../../components/BaseLayout/BaseLayout";
@@ -25,7 +26,7 @@ ProjectsPage.getLayout = (page: ReactElement) => (
   <BaseLayout padTop>{page}</BaseLayout>
 );
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const { data } = await client
     .query<AllProjectsQuery>(AllProjectsDocument, {})
     .toPromise();

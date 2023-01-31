@@ -8,22 +8,13 @@ interface Props {
 }
 
 export const ProjectsGridLargerWorksThumbnail = ({ project }: Props) => {
-  const {
-    slug,
-    _id,
-    color,
-    mainImage,
-    name,
-    companyLogo,
-    summary,
-    deliverables,
-  } = project;
+  const { _id, color, mainImage, name, companyLogo, summary, deliverables } =
+    project;
 
-  const borderColorClass = `border-${color}`;
   return (
     <Link
       href={{
-        pathname: `/projects/${slug?.current}`,
+        pathname: `/projects/${_id}`,
         query: { id: _id },
       }}
       className={classNames(

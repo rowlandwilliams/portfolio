@@ -15,7 +15,7 @@ export const NavBar = () => {
       </Link>
       <nav className="flex gap-x-8">
         <Link
-          href="/projects?view=grid"
+          href="/projects"
           className="font-medium hover:underline"
         >
           Projects
