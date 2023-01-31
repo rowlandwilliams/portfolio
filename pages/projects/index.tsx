@@ -1,12 +1,22 @@
 import { ReactElement } from "react";
+import { client } from "../../client";
 import { BaseLayout } from "../../components/BaseLayout/BaseLayout";
-import { ProjectsGrid } from "../../components/Projects/ProjectsGrid/ProjectsGrid";
+import { ProjectsGridThumbnails } from "../../components/Projects/ProjectsGridThumbnails/ProjectsGridThumbnails";
 import { UiSectionWithMargin } from "../../components/SHARED/UiSectionWithMargin/UiSectionWithMargin";
+import {
+  AllProjectFieldsFragment,
+  AllProjectsDocument,
+  AllProjectsQuery,
+} from "../../graphql/generated";
 
-const ProjectsPage = () => {
+interface Props {
+  projects: AllProjectFieldsFragment[] | undefined;
+}
+
+const ProjectsPage = ({ projects }: Props) => {
   return (
     <UiSectionWithMargin className="flex-grow animate-fade-in-down">
-      <ProjectsGrid />
+      {projects && <ProjectsGridThumbnails projects={projects} />}
     </UiSectionWithMargin>
   );
 };
@@ -14,5 +24,17 @@ const ProjectsPage = () => {
 ProjectsPage.getLayout = (page: ReactElement) => (
   <BaseLayout padTop>{page}</BaseLayout>
 );
+
+export const getStaticProps = async () => {
+  const { data } = await client
+    .query<AllProjectsQuery>(AllProjectsDocument, {})
+    .toPromise();
+
+  return {
+    props: {
+      projects: data?.allProject,
+    },
+  };
+};
 
 export default ProjectsPage;

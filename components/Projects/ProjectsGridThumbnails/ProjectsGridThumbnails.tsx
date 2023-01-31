@@ -1,19 +1,17 @@
-import { AllProjectsQuery } from "../../../../graphql/generated";
-import { ProjectsGridLargerWorksThumbnail } from "../ProjectsGridLargerWorksThumbnail/ProjectsGridLargerWorksThumbnail";
+import { AllProjectFieldsFragment } from "../../../graphql/generated";
+import { ProjectsGridLargerWorksThumbnail } from "./ProjectsGridLargerWorksThumbnail/ProjectsGridLargerWorksThumbnail";
 import { ProjectsGridThumbnail } from "./ProjectsGridThumbnail/ProjectsGridThumbnail";
 
 interface Props {
-  data: AllProjectsQuery;
+  projects: AllProjectFieldsFragment[];
 }
 
-export const ProjectsGridThumbnails = ({ data }: Props) => {
-  const { allProject } = data;
-
-  const clientProjects = allProject.filter(
+export const ProjectsGridThumbnails = ({ projects }: Props) => {
+  const clientProjects = projects.filter(
     (project) => project.category?.name === "Client"
   );
 
-  const nonClientProjects = allProject.filter(
+  const nonClientProjects = projects.filter(
     (project) => project.category?.name !== "Client"
   );
 
