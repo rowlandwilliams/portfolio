@@ -7,7 +7,7 @@ export const HomePageBioLinks = () => {
     <section className="py-2 flex gap-x-4">
       <div className="flex gap-x-2 font-medium">
         <Link
-          href="/projects?view=grid"
+          href="/projects"
           className="border text-sm px-4 py-0.5 border-sky-300 rounded-2xl hover:opacity-80 flex items-center gap-x-2"
         >
           View Projects{" "}
