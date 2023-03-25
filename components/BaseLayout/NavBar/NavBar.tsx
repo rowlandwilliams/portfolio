@@ -14,11 +14,11 @@ export const NavBar = () => {
         Rowland Williams
       </Link>
       <nav className="flex gap-x-8">
-        <Link
-          href="/projects"
-          className="font-medium hover:underline"
-        >
-          Projects
+        <Link href="/code" className="font-medium hover:underline">
+          Code
+        </Link>
+        <Link href="/design" className="font-medium hover:underline">
+          Design
         </Link>
         <Link href="/cv" className="font-medium hover:underline">
           CV

@@ -1,0 +1,5 @@
+query DesignProjects {
+  allDesignProject {
+    ...AllDesignProjectFields
+  }
+}
