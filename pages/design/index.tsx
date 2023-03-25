@@ -6,8 +6,8 @@ import { DesignGrid } from "../../components/DesignGrid/DesignGrid";
 import { UiSectionWithMargin } from "../../components/SHARED/UiSectionWithMargin/UiSectionWithMargin";
 import {
   AllDesignProjectFieldsFragment,
-  DesignProjectsDocument,
-  DesignProjectsQuery,
+  AllDesignProjectsDocument,
+  AllDesignProjectsQuery,
 } from "../../graphql/generated";
 
 interface Props {
@@ -28,7 +28,7 @@ DesignPage.getLayout = (page: ReactElement) => (
 
 export const getStaticProps: GetStaticProps = async () => {
   const { data } = await client
-    .query<DesignProjectsQuery>(DesignProjectsDocument, {})
+    .query<AllDesignProjectsQuery>(AllDesignProjectsDocument, {})
     .toPromise();
 
   return {

@@ -1,0 +1,16 @@
+fragment DesignProjectFields on DesignProject {
+  name
+  summary
+  mainImage {
+    asset {
+      url
+    }
+  }
+  projectImages {
+    image {
+      asset {
+        url
+      }
+    }
+  }
+}

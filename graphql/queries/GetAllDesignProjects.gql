@@ -1,4 +1,4 @@
-query DesignProjects {
+query AllDesignProjects {
   allDesignProject {
     ...AllDesignProjectFields
   }
