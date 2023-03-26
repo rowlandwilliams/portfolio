@@ -30,6 +30,7 @@ export const DesignProjectTemplate = ({ designProject }: Props) => {
             height={400}
             alt={name}
             className="rounded-md"
+            priority
           />
         )}
         {projectImages?.map(
