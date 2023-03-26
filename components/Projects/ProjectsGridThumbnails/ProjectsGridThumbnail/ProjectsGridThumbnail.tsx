@@ -31,6 +31,7 @@ export const ProjectsGridThumbnail = ({ project, isSmall = false }: Props) => {
           fill
           alt={name}
           className="object-cover"
+          priority
         />
       )}
       <h1 className="text-base font-medium z-50 absolute bottom-4">{name}</h1>

@@ -36,6 +36,7 @@ export const ProjectsGridLargerWorksThumbnail = ({ project }: Props) => {
             fill
             alt={name}
             className="object-cover"
+            priority
           />
         )}
       </div>
@@ -47,6 +48,7 @@ export const ProjectsGridLargerWorksThumbnail = ({ project }: Props) => {
               fill
               alt={name}
               className="object-contain"
+              priority
             />
           </div>
         )}
