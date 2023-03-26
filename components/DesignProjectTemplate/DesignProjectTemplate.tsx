@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
 import { DesignProjectFieldsFragment } from "../../graphql/generated";
@@ -7,15 +8,21 @@ interface Props {
 }
 
 export const DesignProjectTemplate = ({ designProject }: Props) => {
-  const { name, summary, mainImage, projectImages } = designProject;
+  const { name, summary, mainImage, projectImages, color } = designProject;
+  const backBorderColor = `border-${color}`;
+  const hoverBackBgColor = `hover:bg-${color}`;
   return (
     <div className="flex flex-col xl:flex-row gap-4 justify-between">
       <section className="space-y-4">
-        <Link
-          href="/design"
-          className="px-4 py-1 font-medium rounded-2xl border border-indigo-600"
-        >
-          {"<-"} <span className="ml-1">Back</span>
+        <Link href="/design" className="font-medium flex gap-x-1 items-center">
+          <div
+            className={classNames(
+              "w-3 h-3 border rounded-full",
+              backBorderColor,
+              hoverBackBgColor
+            )}
+          />
+          <span className="ml-1">Back</span>
         </Link>
         <div className="space-y-2">
           <h1 className="text-sm">{name}</h1>
