@@ -9,7 +9,7 @@ interface Props {
 export const DesignProjectTemplate = ({ designProject }: Props) => {
   const { name, summary, mainImage, projectImages } = designProject;
   return (
-    <div className="flex flex-col lg:flex-row gap-4 justify-between">
+    <div className="flex flex-col xl:flex-row gap-4 justify-between">
       <section className="space-y-4">
         <Link
           href="/design"
@@ -26,10 +26,12 @@ export const DesignProjectTemplate = ({ designProject }: Props) => {
         {mainImage?.asset?.url && name && (
           <Image
             src={mainImage?.asset.url}
-            width={650}
-            height={400}
+            width={0}
+            height={0}
+            sizes="(max-width: 768px) 100vw,
+            (max-width: 1280px) 94vw, 47vw"
             alt={name}
-            className="rounded-md"
+            className="rounded-md w-full h-auto"
             priority
           />
         )}
@@ -39,11 +41,13 @@ export const DesignProjectTemplate = ({ designProject }: Props) => {
             name && (
               <Image
                 src={projectImage?.image?.asset.url}
-                width={650}
-                height={400}
+                width={0}
+                height={0}
+                sizes="(max-width: 768px) 100vw,
+                (max-width: 1280px) 94vw, 47vw"
                 alt={name}
                 key={projectImage?.image?.asset.url}
-                className="rounded-md"
+                className="rounded-md w-full h-auto"
               />
             )
         )}

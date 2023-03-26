@@ -5,9 +5,10 @@ import { AllDesignProjectFieldsFragment } from "../../../graphql/generated";
 
 interface Props {
   designProject: AllDesignProjectFieldsFragment;
+  priority: boolean;
 }
 
-export const DesignGridThumbnail = ({ designProject }: Props) => {
+export const DesignGridThumbnail = ({ designProject, priority }: Props) => {
   const { _id, color, slug, name, summary, mainImage } = designProject;
   return (
     <Link
@@ -26,6 +27,10 @@ export const DesignGridThumbnail = ({ designProject }: Props) => {
             fill
             alt={name}
             className="object-cover"
+            sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
+            priority={priority}
           />
         )}
       </div>
