@@ -9,7 +9,7 @@ interface Props {
 export const DesignProjectTemplate = ({ designProject }: Props) => {
   const { name, summary, mainImage, projectImages } = designProject;
   return (
-    <div className="flex justify-between">
+    <div className="flex flex-col lg:flex-row gap-4 justify-between">
       <section className="space-y-4">
         <Link
           href="/design"
@@ -23,23 +23,29 @@ export const DesignProjectTemplate = ({ designProject }: Props) => {
         </div>
       </section>
       <section className="space-y-2">
-        <Image
-          src={mainImage?.asset.url}
-          width={650}
-          height={400}
-          alt={name}
-          className="rounded-md"
-        />
-        {projectImages?.map(({ image }) => (
+        {mainImage?.asset?.url && name && (
           <Image
-            src={image?.asset.url}
+            src={mainImage?.asset.url}
             width={650}
             height={400}
             alt={name}
-            key={image?.asset.url}
             className="rounded-md"
           />
-        ))}
+        )}
+        {projectImages?.map(
+          (projectImage) =>
+            projectImage?.image?.asset?.url &&
+            name && (
+              <Image
+                src={projectImage?.image?.asset.url}
+                width={650}
+                height={400}
+                alt={name}
+                key={projectImage?.image?.asset.url}
+                className="rounded-md"
+              />
+            )
+        )}
       </section>
     </div>
   );
