@@ -12,7 +12,7 @@ import {
 import { ProjectPageParams } from "../../../types/app";
 
 interface Props {
-  project: ProjectFieldsFragment;
+  project: ProjectFieldsFragment | undefined;
 }
 
 const Project = ({ project }: Props) =>

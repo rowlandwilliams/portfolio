@@ -8,7 +8,7 @@ const projectColors = [
   "teal-300",
   "yellow-300",
 ];
-const classPrefixes = ["stroke", "bg", "border", "hover:border"];
+const classPrefixes = ["stroke", "bg", "border", "hover:border", "hover:bg"];
 
 const getSafelistColors = () => {
   return projectColors

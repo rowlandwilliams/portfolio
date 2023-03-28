@@ -64,6 +64,57 @@ export type DatetimeFilter = {
   neq?: InputMaybe<Scalars['DateTime']>;
 };
 
+export type DesignProject = Document & {
+  __typename?: 'DesignProject';
+  /** Date the document was created */
+  _createdAt?: Maybe<Scalars['DateTime']>;
+  /** Document ID */
+  _id?: Maybe<Scalars['ID']>;
+  _key?: Maybe<Scalars['String']>;
+  /** Current document revision */
+  _rev?: Maybe<Scalars['String']>;
+  /** Document type */
+  _type?: Maybe<Scalars['String']>;
+  /** Date the document was last modified */
+  _updatedAt?: Maybe<Scalars['DateTime']>;
+  color?: Maybe<Scalars['String']>;
+  mainImage?: Maybe<Image>;
+  name?: Maybe<Scalars['String']>;
+  projectImages?: Maybe<Array<Maybe<ImageWithCaption>>>;
+  slug?: Maybe<Slug>;
+  summary?: Maybe<Scalars['String']>;
+};
+
+export type DesignProjectFilter = {
+  /** Apply filters on document level */
+  _?: InputMaybe<Sanity_DocumentFilter>;
+  _createdAt?: InputMaybe<DatetimeFilter>;
+  _id?: InputMaybe<IdFilter>;
+  _key?: InputMaybe<StringFilter>;
+  _rev?: InputMaybe<StringFilter>;
+  _type?: InputMaybe<StringFilter>;
+  _updatedAt?: InputMaybe<DatetimeFilter>;
+  color?: InputMaybe<StringFilter>;
+  mainImage?: InputMaybe<ImageFilter>;
+  name?: InputMaybe<StringFilter>;
+  slug?: InputMaybe<SlugFilter>;
+  summary?: InputMaybe<StringFilter>;
+};
+
+export type DesignProjectSorting = {
+  _createdAt?: InputMaybe<SortOrder>;
+  _id?: InputMaybe<SortOrder>;
+  _key?: InputMaybe<SortOrder>;
+  _rev?: InputMaybe<SortOrder>;
+  _type?: InputMaybe<SortOrder>;
+  _updatedAt?: InputMaybe<SortOrder>;
+  color?: InputMaybe<SortOrder>;
+  mainImage?: InputMaybe<ImageSorting>;
+  name?: InputMaybe<SortOrder>;
+  slug?: InputMaybe<SlugSorting>;
+  summary?: InputMaybe<SortOrder>;
+};
+
 /** A Sanity document */
 export type Document = {
   /** Date the document was created */
@@ -362,6 +413,7 @@ export type ProjectSorting = {
 
 export type RootQuery = {
   __typename?: 'RootQuery';
+  DesignProject?: Maybe<DesignProject>;
   Document?: Maybe<Document>;
   ImageWithCaption?: Maybe<ImageWithCaption>;
   Project?: Maybe<Project>;
@@ -369,6 +421,7 @@ export type RootQuery = {
   SanityFileAsset?: Maybe<SanityFileAsset>;
   SanityImageAsset?: Maybe<SanityImageAsset>;
   Technology?: Maybe<Technology>;
+  allDesignProject: Array<DesignProject>;
   allDocument: Array<Document>;
   allImageWithCaption: Array<ImageWithCaption>;
   allProject: Array<Project>;
@@ -376,6 +429,11 @@ export type RootQuery = {
   allSanityFileAsset: Array<SanityFileAsset>;
   allSanityImageAsset: Array<SanityImageAsset>;
   allTechnology: Array<Technology>;
+};
+
+
+export type RootQueryDesignProjectArgs = {
+  id: Scalars['ID'];
 };
 
 
@@ -411,6 +469,14 @@ export type RootQuerySanityImageAssetArgs = {
 
 export type RootQueryTechnologyArgs = {
   id: Scalars['ID'];
+};
+
+
+export type RootQueryAllDesignProjectArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  sort?: InputMaybe<Array<DesignProjectSorting>>;
+  where?: InputMaybe<DesignProjectFilter>;
 };
 
 
@@ -924,10 +990,22 @@ export type TechnologySorting = {
   name?: InputMaybe<SortOrder>;
 };
 
+export type AllDesignProjectsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AllDesignProjectsQuery = { __typename?: 'RootQuery', allDesignProject: Array<{ __typename?: 'DesignProject', _id?: string | null, name?: string | null, summary?: string | null, color?: string | null, slug?: { __typename?: 'Slug', current?: string | null } | null, mainImage?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null }> };
+
 export type AllProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type AllProjectsQuery = { __typename?: 'RootQuery', allProject: Array<{ __typename?: 'Project', _id?: string | null, name?: string | null, summary?: string | null, color?: string | null, companyUrl?: string | null, deliverables?: Array<string | null> | null, mainImage?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null, slug?: { __typename?: 'Slug', current?: string | null } | null, category?: { __typename?: 'ProjectCategory', name?: string | null } | null, companyLogo?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null }> };
+
+export type DesignProjectQueryVariables = Exact<{
+  designProjectId: Scalars['ID'];
+}>;
+
+
+export type DesignProjectQuery = { __typename?: 'RootQuery', DesignProject?: { __typename?: 'DesignProject', name?: string | null, summary?: string | null, color?: string | null, mainImage?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null, projectImages?: Array<{ __typename?: 'ImageWithCaption', image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null } | null> | null } | null };
 
 export type ProjectQueryVariables = Exact<{
   projectId: Scalars['ID'];
@@ -936,11 +1014,19 @@ export type ProjectQueryVariables = Exact<{
 
 export type ProjectQuery = { __typename?: 'RootQuery', Project?: { __typename?: 'Project', name?: string | null, summary?: string | null, color?: string | null, overviewRaw?: any | null, problemRaw?: any | null, solutionRaw?: any | null, companyUrl?: string | null, jobTitle?: string | null, deliverables?: Array<string | null> | null, locations?: Array<string | null> | null, mainImage?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null, projectImages?: Array<{ __typename?: 'ImageWithCaption', caption?: string | null, image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null } | null> | null, companyLogo?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null, technologies?: Array<{ __typename?: 'Technology', _id?: string | null, name?: string | null } | null> | null, category?: { __typename?: 'ProjectCategory', name?: string | null } | null } | null };
 
+export type AllDesignProjectFieldsFragment = { __typename?: 'DesignProject', _id?: string | null, name?: string | null, summary?: string | null, color?: string | null, slug?: { __typename?: 'Slug', current?: string | null } | null, mainImage?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null };
+
 export type AllProjectFieldsFragment = { __typename?: 'Project', _id?: string | null, name?: string | null, summary?: string | null, color?: string | null, companyUrl?: string | null, deliverables?: Array<string | null> | null, mainImage?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null, slug?: { __typename?: 'Slug', current?: string | null } | null, category?: { __typename?: 'ProjectCategory', name?: string | null } | null, companyLogo?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null };
+
+export type DesignProjectFieldsFragment = { __typename?: 'DesignProject', name?: string | null, summary?: string | null, color?: string | null, mainImage?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null, projectImages?: Array<{ __typename?: 'ImageWithCaption', image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null } | null> | null };
 
 export type ProjectFieldsFragment = { __typename?: 'Project', name?: string | null, summary?: string | null, color?: string | null, overviewRaw?: any | null, problemRaw?: any | null, solutionRaw?: any | null, companyUrl?: string | null, jobTitle?: string | null, deliverables?: Array<string | null> | null, locations?: Array<string | null> | null, mainImage?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null, projectImages?: Array<{ __typename?: 'ImageWithCaption', caption?: string | null, image?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null } | null> | null, companyLogo?: { __typename?: 'Image', asset?: { __typename?: 'SanityImageAsset', url?: string | null } | null } | null, technologies?: Array<{ __typename?: 'Technology', _id?: string | null, name?: string | null } | null> | null, category?: { __typename?: 'ProjectCategory', name?: string | null } | null };
 
+export const AllDesignProjectFieldsFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AllDesignProjectFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"DesignProject"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"summary"}},{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","name":{"kind":"Name","value":"slug"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"current"}}]}},{"kind":"Field","name":{"kind":"Name","value":"mainImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]} as unknown as DocumentNode<AllDesignProjectFieldsFragment, unknown>;
 export const AllProjectFieldsFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AllProjectFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Project"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"summary"}},{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","name":{"kind":"Name","value":"mainImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"slug"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"current"}}]}},{"kind":"Field","name":{"kind":"Name","value":"category"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}},{"kind":"Field","name":{"kind":"Name","value":"companyLogo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"companyUrl"}},{"kind":"Field","name":{"kind":"Name","value":"deliverables"}}]}}]} as unknown as DocumentNode<AllProjectFieldsFragment, unknown>;
+export const DesignProjectFieldsFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"DesignProjectFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"DesignProject"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"summary"}},{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","name":{"kind":"Name","value":"mainImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"projectImages"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]}}]} as unknown as DocumentNode<DesignProjectFieldsFragment, unknown>;
 export const ProjectFieldsFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ProjectFields"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Project"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"summary"}},{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","name":{"kind":"Name","value":"mainImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"projectImages"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"caption"}}]}},{"kind":"Field","name":{"kind":"Name","value":"overviewRaw"}},{"kind":"Field","name":{"kind":"Name","value":"problemRaw"}},{"kind":"Field","name":{"kind":"Name","value":"solutionRaw"}},{"kind":"Field","name":{"kind":"Name","value":"companyLogo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"asset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"companyUrl"}},{"kind":"Field","name":{"kind":"Name","value":"jobTitle"}},{"kind":"Field","name":{"kind":"Name","value":"technologies"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"_id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}},{"kind":"Field","name":{"kind":"Name","value":"deliverables"}},{"kind":"Field","name":{"kind":"Name","value":"locations"}},{"kind":"Field","name":{"kind":"Name","value":"category"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]} as unknown as DocumentNode<ProjectFieldsFragment, unknown>;
+export const AllDesignProjectsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"AllDesignProjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allDesignProject"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"sort"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"name"},"value":{"kind":"EnumValue","value":"ASC"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"AllDesignProjectFields"}}]}}]}},...AllDesignProjectFieldsFragmentDoc.definitions]} as unknown as DocumentNode<AllDesignProjectsQuery, AllDesignProjectsQueryVariables>;
 export const AllProjectsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"AllProjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"allProject"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"sort"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"complete"},"value":{"kind":"EnumValue","value":"ASC"}},{"kind":"ObjectField","name":{"kind":"Name","value":"endDate"},"value":{"kind":"EnumValue","value":"DESC"}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"AllProjectFields"}}]}}]}},...AllProjectFieldsFragmentDoc.definitions]} as unknown as DocumentNode<AllProjectsQuery, AllProjectsQueryVariables>;
+export const DesignProjectDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"DesignProject"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"designProjectId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"DesignProject"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"designProjectId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"DesignProjectFields"}}]}}]}},...DesignProjectFieldsFragmentDoc.definitions]} as unknown as DocumentNode<DesignProjectQuery, DesignProjectQueryVariables>;
 export const ProjectDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Project"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"projectId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Project"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"projectId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ProjectFields"}}]}}]}},...ProjectFieldsFragmentDoc.definitions]} as unknown as DocumentNode<ProjectQuery, ProjectQueryVariables>;

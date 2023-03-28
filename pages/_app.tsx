@@ -1,4 +1,3 @@
-import { withUrqlClient } from "next-urql";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { ReactNode } from "react";
@@ -28,10 +27,4 @@ const App = ({ Component, pageProps }: Props) => {
   );
 };
 
-export default withUrqlClient(
-  (ssrExchange) => ({
-    url: "http://localhost:3000/graphql",
-    exchanges: [ssrExchange],
-  }),
-  { ssr: true } // Enables server-side rendering using `getInitialProps`
-)(App);
+export default App;
