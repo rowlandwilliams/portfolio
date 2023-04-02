@@ -1,10 +1,10 @@
 import { HomePageBio } from "./HomePageBio/HomePageBio";
-import { HomePageDummyBrowser } from "./HomePageDummyBrowser/HomePageDummyBrowser";
+import { RadarChartSvg } from "./RadarChartSvg/RadarChartSvg";
 
 export const HomePage = () => {
   return (
     <section className="flex-grow flex flex-col-reverse lg:flex-row justify-between gap-12">
-      <HomePageDummyBrowser />
+      <RadarChartSvg />
       <HomePageBio />
     </section>
   );

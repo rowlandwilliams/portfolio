@@ -5,21 +5,30 @@ import { HomePageBioLinkArrow } from "./HomePageBioLinkArrow/HomePageBioLinkArro
 export const HomePageBioLinks = () => {
   return (
     <section className="py-2 flex gap-x-4">
-      <div className="flex gap-x-2 font-medium">
+      <div className="flex gap-x-4">
         <Link
-          href="/projects"
-          className="border text-sm px-4 py-0.5 border-sky-300 rounded-2xl hover:opacity-80 flex items-center gap-x-2"
+          href="/code"
+          className="text-sm py-0.5 rounded-2xl hover:opacity-80 flex items-center gap-x-2"
         >
-          View Projects{" "}
+          Code
           <span className="text-sky-300">
             <HomePageBioLinkArrow />
           </span>
         </Link>
         <Link
-          href="/cv"
-          className="border text-sm px-4 py-0.5 border-yellow-300 rounded-2xl hover:opacity-80 flex items-center gap-x-2"
+          href="/design"
+          className="text-sm py-0.5 rounded-2xl hover:opacity-80 flex items-center gap-x-2"
         >
-          View CV{" "}
+          Design
+          <span className="text-indigo-500">
+            <HomePageBioLinkArrow />
+          </span>
+        </Link>
+        <Link
+          href="/cv"
+          className="text-sm py-0.5 rounded-2xl hover:opacity-80 flex items-center gap-x-2"
+        >
+          CV
           <span className="text-yellow-300">
             <HomePageBioLinkArrow />
           </span>
@@ -32,13 +41,6 @@ export const HomePageBioLinks = () => {
           className="hover:opacity-80"
         >
           <Image src="/github.svg" width={22} height={22} alt="github" />
-        </Link>
-        <Link
-          href="https://www.linkedin.com/in/rowland-williams-51649318b/"
-          target="_blank"
-          className="hover:opacity-80"
-        >
-          <Image src="/linkedin.svg" width={22} height={22} alt="linkedin" />
         </Link>
       </div>
     </section>
