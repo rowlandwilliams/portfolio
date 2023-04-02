@@ -32,7 +32,7 @@ export const RadarChartSvgBaseLines = ({ lineData }: Props) => {
                         y1={y1}
                         y2={y2}
                         key={`${day}-${x1}-${x2}-${y1}-${y2}-line-${i}`}
-                        className="stroke-gray-700"
+                        className="stroke-gray-700 opacity-60"
                       ></line>
                     )
                 )}

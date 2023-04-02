@@ -4,7 +4,7 @@ import { HomePageBioLinkArrow } from "./HomePageBioLinkArrow/HomePageBioLinkArro
 
 export const HomePageBioLinks = () => {
   return (
-    <section className="py-2 flex gap-x-4">
+    <section className="py-2 flex gap-x-4 text-gray-300">
       <div className="flex gap-x-4">
         <Link
           href="/code"
@@ -24,17 +24,8 @@ export const HomePageBioLinks = () => {
             <HomePageBioLinkArrow />
           </span>
         </Link>
-        <Link
-          href="/cv"
-          className="text-sm py-0.5 rounded-2xl hover:opacity-80 flex items-center gap-x-2"
-        >
-          CV
-          <span className="text-yellow-300">
-            <HomePageBioLinkArrow />
-          </span>
-        </Link>
       </div>
-      <div className="flex gap-x-2 items-center">
+      <div className="flex gap-x-2 items-center ">
         <Link
           href="https://github.com/rowlandwilliams"
           target="_blank"

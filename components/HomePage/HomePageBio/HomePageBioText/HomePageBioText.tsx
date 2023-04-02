@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export const HomePageBioText = () => {
   return (
-    <section className="space-y-12 text-base text-gray-300 sm:pt-16">
+    <section className="space-y-12 text-base text-gray-300">
       <h1 className="text-white text-lg font-medium">Hi I&apos;m Rowland.</h1>
       <div className="space-y-6 leading-6">
         <p>
@@ -20,7 +20,7 @@ export const HomePageBioText = () => {
             alt="kulea"
             className="inline ml-2 mr-0.5 mb-0.5"
           />
-          , a Nairobi-based start-up digitising commodity supply chains.
+          , a Nairobi-based start-up digitising commodity supply chains in East Africa. I&apos;m also available for freelance work.
         </p>
       </div>
     </section>

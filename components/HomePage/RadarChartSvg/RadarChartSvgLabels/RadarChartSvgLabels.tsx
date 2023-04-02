@@ -41,7 +41,7 @@ export const RadarChartSvgLabels = ({
             key={name}
             x={coords[0] + xPadding}
             y={coords[1] + yPadding}
-            className="fill-gray-400"
+            className="fill-gray-300"
             textAnchor={textAnchor}
             alignmentBaseline="middle"
           >
