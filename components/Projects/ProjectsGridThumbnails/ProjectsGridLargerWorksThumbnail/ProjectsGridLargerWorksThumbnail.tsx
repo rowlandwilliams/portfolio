@@ -22,7 +22,7 @@ export const ProjectsGridLargerWorksThumbnail = ({ project }: Props) => {
   return (
     <Link
       href={{
-        pathname: `/projects/${slug?.current}/${_id}`,
+        pathname: `/code/${slug?.current}/${_id}`,
       }}
       className={classNames(
         "border rounded-md border-gray-700 overflow-hidden",

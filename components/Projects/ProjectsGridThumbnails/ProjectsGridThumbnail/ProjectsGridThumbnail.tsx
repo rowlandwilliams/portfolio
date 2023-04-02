@@ -14,7 +14,7 @@ export const ProjectsGridThumbnail = ({ project, isSmall = false }: Props) => {
   return (
     <Link
       href={{
-        pathname: `/projects/${slug?.current}/${_id}`,
+        pathname: `/code/${slug?.current}/${_id}`,
       }}
       className={classNames(
         "border relative border-transparent rounded-md overflow-hidden p-4",
