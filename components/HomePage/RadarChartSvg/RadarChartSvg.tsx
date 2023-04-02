@@ -29,7 +29,10 @@ export const RadarChartSvg = () => {
     graphDim: visDim,
   });
   return (
-    <div className="flex-grow w-full md:w-1/2 flex-shrink-0" ref={ref}>
+    <div
+      className="flex-grow w-full md:w-1/2 flex-shrink-0 min-h-[400px]"
+      ref={ref}
+    >
       <svg width={graphDim} height={graphDim} className="mx-auto">
         <g transform={`translate(${padding / 2}, ${padding / 2})`}>
           <RadarChartSvgBaseLines lineData={lineData} />
