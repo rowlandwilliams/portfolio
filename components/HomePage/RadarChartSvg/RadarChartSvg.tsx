@@ -12,8 +12,8 @@ const nLevels = levels.length;
 const traits = [
   { name: "Developer", score: 8 },
   { name: "Designer", score: 5 },
-  { name: "Scientist", score: 4 },
-  { name: "Artist", score: 8 },
+  { name: "Scientist", score: 3 },
+  { name: "Artist", score: 7 },
 ];
 
 export const RadarChartSvg = () => {
