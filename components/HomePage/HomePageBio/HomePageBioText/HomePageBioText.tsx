@@ -2,32 +2,27 @@ import Image from "next/image";
 
 export const HomePageBioText = () => {
   return (
-    <section className="space-y-4 text-lg text-gray-100 border-b border-gray-700 pb-4">
-      <h1>Welcome...</h1>
-      <h2 className="text-2xl font-medium text-white">
-        I am a <span className="text-yellow-300">Software Engineer</span> interested in {" "}
-        <span className="text-indigo-400">Data Visualisation</span>.
-      </h2>
-      <h3>
-        I connect <span className="text-sky-400 font-medium">data</span>,{" "}
-        <span className="text-indigo-400 font-medium">design</span> and{" "}
-        <span className="text-yellow-300 font-medium">technology</span> to build
-        apps that explore and visualise complex information.
-      </h3>
-      <h4 className="text-sm">
-        React, TypeScript, GraphQL and d3.js are some of the technologies I use.
-      </h4>
-      <h5 className="text-sm">
-        Currently, I am Engineering Lead at{" "}
-        <Image
-          src={"/home/kulea.svg"}
-          width={70}
-          height={100}
-          alt="kulea"
-          className="inline ml-2 mr-0.5 mb-0.5"
-        />
-        , a commodity intelligence start-up in Nairobi, Kenya.
-      </h5>
+    <section className="space-y-12 text-base text-gray-300">
+      <h1 className="text-white text-lg font-medium">Hi I&apos;m Rowland.</h1>
+      <div className="space-y-6 leading-6">
+        <p>
+          I&apos;m a <span>Software Engineer</span> interested in{" "}
+          <span>Data Visualisation</span>. I connect <span>data</span>,{" "}
+          <span>design</span> and <span>technology</span> to build apps that
+          explore and visualise complex information.
+        </p>
+        <p>
+          Currently, I am Engineering Lead at{" "}
+          <Image
+            src={"/home/kulea.svg"}
+            width={70}
+            height={100}
+            alt="kulea"
+            className="inline ml-2 mr-0.5 mb-0.5"
+          />
+          , a Nairobi-based start-up digitising commodity supply chains in East Africa. I&apos;m also available for freelance work.
+        </p>
+      </div>
     </section>
   );
 };
