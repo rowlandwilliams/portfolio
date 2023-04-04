@@ -10,9 +10,9 @@ const levels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const nLevels = levels.length;
 
 const traits = [
-  { name: "Developer", score: 8 },
-  { name: "Designer", score: 5 },
+  { name: "Developer", score: 9 },
   { name: "Scientist", score: 3 },
+  { name: "Designer", score: 5 },
   { name: "Artist", score: 7 },
 ];
 

@@ -5,7 +5,7 @@ import { UiSectionWithMargin } from "../components/SHARED/UiSectionWithMargin/Ui
 
 const Home = () => {
   return (
-    <UiSectionWithMargin className="flex-grow animate-fade-in-down">
+    <UiSectionWithMargin className="flex-grow animate-fade-in-down-1">
       <HomePage />
     </UiSectionWithMargin>
   );

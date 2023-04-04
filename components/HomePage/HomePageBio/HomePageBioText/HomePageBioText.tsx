@@ -6,9 +6,9 @@ export const HomePageBioText = () => {
       <h1 className="text-white text-lg font-medium">Hi I&apos;m Rowland.</h1>
       <div className="space-y-6 leading-6">
         <p>
-          I&apos;m a <span>Software Engineer</span> interested in{" "}
-          <span>Data Visualisation</span>. I connect <span>data</span>,{" "}
-          <span>design</span> and <span>technology</span> to build apps that
+          I&apos;m a Software Engineer interested in
+          Data Visualisation. I connect data,
+          design and technology to build apps that
           explore and visualise complex information.
         </p>
         <p>
