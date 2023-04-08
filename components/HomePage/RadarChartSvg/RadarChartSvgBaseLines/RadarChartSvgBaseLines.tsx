@@ -14,7 +14,7 @@ interface Props {
 
 export const RadarChartSvgBaseLines = ({ lineData }: Props) => {
   return (
-    <g>
+    <g >
       {lineData.map(
         ({ day, diagonalCoords }) =>
           diagonalCoords[0]?.x1 && (

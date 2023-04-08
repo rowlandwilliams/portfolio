@@ -5,3 +5,28 @@
 #hide-scroll::-webkit-scrollbar {
   display: none;
 }
+
+.path {
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  pointer-events: none;
+  animation: animateDash 2s linear forwards;
+}
+
+.path-base {
+  fill-opacity: 0;
+  animation: animateFillOpacity 2s linear forwards;
+  animation-delay: 1.5s;
+}
+
+@keyframes animateDash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes animateFillOpacity {
+  to {
+    fill-opacity: 0.5;
+  }
+}
