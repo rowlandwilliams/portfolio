@@ -11,7 +11,7 @@ export const HomePageBioText = () => {
           visualise complex information.
         </p>
         <p>
-          Currently, I am Engineering Lead at{" "}
+          Currently, I am Lead Software Engineer at{" "}
           <a href="https://kulea.ai/" target="_blank" rel="noreferrer">
             <Image
               src={"/home/kulea.svg"}
